@@ -1,0 +1,9 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- MONSTER KEBABS — La Garra (Modo A) · tinta sobre transparente -->
+  <path d="M100,12 L188,100 L100,188 L12,100 Z M146,44 a19,19 0 0 0 -24,26 Z" fill="#0B0A09" fill-rule="evenodd"/>
+  <g fill="#EFE9DF">
+    <path d="M74,58 C86,86 88,122 76,152 C66,120 64,86 74,58 Z"/>
+    <path d="M100,48 C114,82 116,124 102,162 C90,122 88,82 100,48 Z"/>
+    <path d="M126,60 C136,88 138,120 128,148 C118,118 116,86 126,60 Z"/>
+  </g>
+</svg>

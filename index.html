@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MONSTER KEBABS — FEED THE MONSTER.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#0B0A09;
+    --tinta2:#141210;
+    --hueso:#EFE9DF;
+    --humo:#8A837A;
+    --ember:#FF4E1B;
+    --line:rgba(239,233,223,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--tinta);
+    color:var(--hueso);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--ember);color:var(--tinta)}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .display{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.92;letter-spacing:.01em}
+
+  /* grain */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+
+  /* topbar */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 28px;font-size:11px;letter-spacing:.14em;
+    color:var(--humo);text-transform:uppercase;
+    background:linear-gradient(var(--tinta) 60%,transparent);
+  }
+  .topbar b{color:var(--hueso);font-weight:500}
+  .topbar .dot{color:var(--ember)}
+  .nav{display:flex;gap:18px;flex-wrap:wrap}
+  .nav a{color:var(--humo);text-decoration:none;font-size:10.5px;letter-spacing:.14em;transition:.2s}
+  .nav a:hover{color:var(--ember)}
+  .nav a.on{color:var(--ember)}
+  @media(max-width:820px){.topbar{flex-direction:column;align-items:flex-start;background:var(--tinta)}}
+
+  section{max-width:1200px;margin:0 auto;padding:110px 28px}
+  .label{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ember);margin-bottom:28px;
+  }
+  .label::before{content:"";display:inline-block;width:26px;height:1px;background:var(--ember);vertical-align:middle;margin-right:12px}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding-top:120px;position:relative;
+  }
+  .hero .kebo-wrap{width:min(310px,60vw);margin-bottom:8px}
+  .hero h1{font-size:clamp(64px,11vw,150px);color:var(--hueso)}
+  .hero h1 .k2{display:block;color:transparent;-webkit-text-stroke:1.5px var(--hueso)}
+  .hero .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:clamp(13px,1.6vw,16px);
+    letter-spacing:.3em;color:var(--ember);margin-top:26px;text-transform:uppercase;
+  }
+  .hero .sub{color:var(--humo);font-size:14px;margin-top:14px;max-width:420px}
+  .hero .plats{display:flex;gap:10px;margin-top:34px;flex-wrap:wrap;justify-content:center}
+  .hero .plats span{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+    border:1px solid var(--line);padding:8px 16px;color:var(--humo);text-transform:uppercase;
+  }
+  .hero .coords{position:absolute;bottom:26px;left:0;right:0;display:flex;justify-content:space-between;
+    padding:0 28px;font-size:10.5px;color:var(--humo);letter-spacing:.14em}
+
+  /* marquee */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;white-space:nowrap}
+  .marquee-inner{display:inline-block;animation:mq 26s linear infinite;font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.08em;color:var(--humo)}
+  .marquee-inner em{color:var(--ember);font-style:normal;margin:0 22px}
+  @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* MANIFIESTO */
+  .manifiesto p{
+    font-size:clamp(22px,3.4vw,38px);font-family:'Anton',sans-serif;text-transform:uppercase;
+    line-height:1.25;max-width:880px;color:var(--humo);
+  }
+  .manifiesto p b{color:var(--hueso);font-weight:400}
+  .manifiesto p .fire{color:var(--ember)}
+
+  /* MONSTRUO */
+  .monstruo-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .kebo-card{background:var(--hueso);padding:44px;position:relative}
+  .kebo-card svg{width:100%;display:block}
+  .kebo-card .serial{position:absolute;top:14px;left:16px;font-size:10px;letter-spacing:.2em;color:rgba(11,10,9,.5)}
+  .kebo-card .serial2{position:absolute;bottom:14px;right:16px;font-size:10px;letter-spacing:.2em;color:rgba(11,10,9,.5)}
+  .callouts{list-style:none;display:flex;flex-direction:column;gap:0}
+  .callouts li{
+    display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:baseline;
+    padding:17px 0;border-bottom:1px solid var(--line);
+  }
+  .callouts li:first-child{border-top:1px solid var(--line)}
+  .callouts .idx{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ember);letter-spacing:.12em}
+  .callouts .name{font-family:'Anton',sans-serif;font-size:19px;text-transform:uppercase;letter-spacing:.03em}
+  .callouts .desc{color:var(--humo);font-size:13px;margin-top:5px;line-height:1.55}
+  .monstruo-intro{color:var(--humo);font-size:15px;line-height:1.7;max-width:640px;margin-bottom:52px}
+  .monstruo-intro b{color:var(--hueso);font-weight:600}
+
+  /* MENÚ */
+  .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .menu-item{background:var(--tinta);padding:30px 28px;display:flex;flex-direction:column;gap:9px;transition:background .3s}
+  .menu-item:hover{background:var(--tinta2)}
+  .menu-item .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .menu-item h3{font-family:'Anton',sans-serif;font-size:23px;text-transform:uppercase;letter-spacing:.02em}
+  .menu-item .price{font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--ember)}
+  .menu-item p{color:var(--humo);font-size:13px;line-height:1.6}
+  .menu-item .chip{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--tinta);
+    background:var(--ember);display:inline-block;padding:3px 9px;width:fit-content;text-transform:uppercase}
+  .menu-note{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--humo);margin-top:22px;letter-spacing:.06em;line-height:1.8}
+
+  /* BITES */
+  .bites-sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:44px}
+  .bites-sizes .size{background:var(--tinta);padding:34px 24px;text-align:center}
+  .bites-sizes .n{font-family:'Anton',sans-serif;font-size:56px;color:var(--hueso);line-height:1}
+  .bites-sizes .nm{font-family:'Anton',sans-serif;font-size:17px;color:var(--ember);text-transform:uppercase;margin-top:6px;letter-spacing:.05em}
+  .bites-sizes .pz{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--humo);margin-top:10px;letter-spacing:.14em}
+  .sazon{display:flex;flex-wrap:wrap;gap:10px}
+  .sazon span{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+    border:1px solid var(--line);padding:10px 18px;color:var(--hueso);transition:.25s;cursor:default;
+  }
+  .sazon span:hover{border-color:var(--ember);color:var(--ember)}
+
+  /* IDENTIDAD */
+  .paleta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:56px}
+  .swatch{aspect-ratio:1/1.1;padding:16px;display:flex;flex-direction:column;justify-content:flex-end}
+  .swatch .sn{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+  .swatch .sx{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;margin-top:3px}
+  .type-spec{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+  .type-spec .cell{border-top:1px solid var(--line);padding-top:22px}
+  .type-spec .tname{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ember);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+  .type-spec .sample-a{font-family:'Anton',sans-serif;font-size:44px;text-transform:uppercase;line-height:1}
+  .type-spec .sample-b{font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1.7;color:var(--humo)}
+
+  /* STICKERS */
+  .stickers{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+  .sticker{
+    aspect-ratio:1;border:1px dashed var(--line);border-radius:50%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+    transition:.3s;
+  }
+  .sticker:hover{border-color:var(--ember)}
+  .sticker svg{width:38%;}
+  .sticker .stn{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--humo);text-transform:uppercase;text-align:center;padding:0 6px}
+  .sticker.gold{border:1px solid var(--ember)}
+  .sticker.gold .stn{color:var(--ember)}
+  .stickers-note{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--humo);margin-top:26px;letter-spacing:.08em;line-height:1.9}
+  .stickers-note em{color:var(--ember);font-style:normal}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:60px 28px 40px;max-width:1200px;margin:60px auto 0}
+  footer .big{font-family:'Anton',sans-serif;font-size:clamp(40px,7vw,86px);text-transform:uppercase;line-height:.95}
+  footer .big span{color:var(--ember)}
+  .foot-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:44px;
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--humo);letter-spacing:.14em;text-transform:uppercase}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+  .rv.on{opacity:1;transform:none}
+
+  @media(max-width:820px){
+    .monstruo-grid{grid-template-columns:1fr;gap:44px}
+    .menu-grid{grid-template-columns:1fr}
+    .type-spec{grid-template-columns:1fr}
+    .stickers{grid-template-columns:repeat(3,1fr)}
+    .paleta{grid-template-columns:repeat(2,1fr)}
+    .bites-sizes{grid-template-columns:1fr}
+    section{padding:80px 20px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar mono">
+  <div><b>MONSTER KEBABS</b><span class="dot"> ●</span> DARK KITCHEN</div>
+  <nav class="nav">
+    <a href="index.html" class="on">MARCA</a><a href="logos.html">LOGOS</a><a href="bestiario.html">BESTIARIO</a>
+    <a href="empaques.html">EMPAQUES</a><a href="conceptos.html">CONCEPTOS</a><a href="landing.html">LANDING</a>
+  </nav>
+</div>
+
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <div class="kebo-wrap">
+    <!-- KEBO — versión hueso sobre tinta -->
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-label="KEBO">
+      <defs>
+        <pattern id="ht-h" width="9" height="9" patternUnits="userSpaceOnUse">
+          <circle cx="4.5" cy="4.5" r="1.5" fill="#0B0A09" opacity=".28"/>
+        </pattern>
+      </defs>
+      <!-- cuerpo -->
+      <path d="M200,86 C118,86 64,152 64,240 C64,326 122,368 200,368 C278,368 336,326 336,240 C336,152 282,86 200,86 Z" fill="#EFE9DF"/>
+      <!-- cuerno izq (despuntado) -->
+      <path d="M126,118 L108,66 L150,64 L158,100 Z" fill="#EFE9DF"/>
+      <path d="M108,66 L150,64 L144,52 L116,54 Z" fill="#0B0A09" opacity="0"/>
+      <!-- cuerno der -->
+      <path d="M256,104 L282,42 L306,88 L276,122 Z" fill="#EFE9DF"/>
+      <!-- orejas de murciélago -->
+      <path d="M78,168 L46,140 L84,132 Z" fill="#EFE9DF"/>
+      <path d="M322,168 L354,140 L316,132 Z" fill="#EFE9DF"/>
+      <!-- ojos ember -->
+      <ellipse cx="152" cy="192" rx="26" ry="34" fill="#FF4E1B" transform="rotate(-8 152 192)"/>
+      <ellipse cx="248" cy="192" rx="26" ry="34" fill="#FF4E1B" transform="rotate(8 248 192)"/>
+      <ellipse cx="158" cy="184" rx="7" ry="10" fill="#0B0A09"/>
+      <ellipse cx="242" cy="184" rx="7" ry="10" fill="#0B0A09"/>
+      <!-- boca 13 dientes -->
+      <path d="M110,252 C140,296 260,296 290,252 C282,318 118,318 110,252 Z" fill="#0B0A09"/>
+      <g fill="#EFE9DF">
+        <path d="M124,262 l9,16 9,-13 Z"/><path d="M146,272 l9,17 9,-14 Z"/><path d="M170,279 l9,17 9,-15 Z"/>
+        <path d="M194,282 l9,17 9,-16 Z"/><path d="M218,279 l9,16 9,-16 Z"/><path d="M242,272 l9,15 9,-16 Z"/>
+        <path d="M264,260 l8,14 9,-14 Z"/>
+        <path d="M140,304 l8,-13 8,12 Z"/><path d="M164,310 l8,-13 8,12 Z"/><path d="M190,313 l8,-13 8,13 Z"/>
+        <path d="M216,311 l8,-14 8,12 Z"/><path d="M240,305 l8,-14 8,11 Z"/><path d="M260,296 l7,-12 8,10 Z"/>
+      </g>
+      <!-- panza halftone -->
+      <ellipse cx="200" cy="345" rx="72" ry="20" fill="url(#ht-h)"/>
+      <!-- garras -->
+      <g fill="#EFE9DF">
+        <path d="M62,246 L30,238 L58,262 L34,266 L60,282 L44,292 L66,296 Z"/>
+        <path d="M338,246 L370,238 L342,262 L366,266 L340,282 L356,292 L334,296 Z"/>
+      </g>
+    </svg>
+  </div>
+  <h1 class="display">MONSTER<span class="k2">KEBABS</span></h1>
+  <div class="tag">FEED THE MONSTER.</div>
+  <p class="sub">No alimentes tu hambre. Alimenta a tu monstruo.</p>
+  <div class="plats mono">
+    <span>UBER EATS</span><span>RAPPI</span><span>DIDI FOOD</span>
+  </div>
+  <div class="coords mono">
+    <span>19.7008° N · 101.1844° W</span>
+    <span>SOLO DELIVERY — LA COCINA NO SE VE. SE SIENTE.</span>
+  </div>
+</div>
+
+<div class="marquee">
+  <div class="marquee-inner">
+    FEED THE MONSTER <em>●</em> 900 AÑOS SIGUIENDO EL FUEGO <em>●</em> EL PRIMO PERDIDO DEL PASTOR <em>●</em> MORELIA <em>●</em>
+    FEED THE MONSTER <em>●</em> 900 AÑOS SIGUIENDO EL FUEGO <em>●</em> EL PRIMO PERDIDO DEL PASTOR <em>●</em> MORELIA <em>●</em>
+  </div>
+</div>
+
+<!-- ══════════════ MANIFIESTO ══════════════ -->
+<section class="manifiesto rv">
+  <div class="label">01 — MANIFIESTO</div>
+  <p>
+    Tienes hambre. No, no es hambre. <b>Es algo más viejo.</b> Vive abajo del estómago y arriba
+    del miedo. Lleva 900 años siguiendo el olor del fuego. No le des una ensalada.
+    No le des disculpas. <b>Dale carne al fuego. Dale pan caliente.</b>
+    <span class="fire">Dale de comer.</span>
+  </p>
+</section>
+
+<!-- ══════════════ EL MONSTRUO ══════════════ -->
+<section class="rv">
+  <div class="label">02 — EL MONSTRUO</div>
+  <p class="monstruo-intro">
+    <b>KEBO.</b> Un kaiju de bolsillo: 1.20 m de puro apetito. El humo de mil trompos lo despertó
+    bajo la montaña y siguió el olor de la carne al fuego durante 900 años — de Anatolia a Berlín,
+    de Berlín a Puebla, del pastor a Morelia. No destruye ciudades. <b>Las alimenta.</b>
+  </p>
+  <div class="monstruo-grid">
+    <div class="kebo-card">
+      <div class="serial mono">SPEC — KEBO / SERIE 001</div>
+      <!-- KEBO — versión tinta sobre hueso (canon) -->
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-label="KEBO spec">
+        <defs>
+          <pattern id="ht-t" width="9" height="9" patternUnits="userSpaceOnUse">
+            <circle cx="4.5" cy="4.5" r="1.5" fill="#EFE9DF" opacity=".35"/>
+          </pattern>
+        </defs>
+        <path d="M200,86 C118,86 64,152 64,240 C64,326 122,368 200,368 C278,368 336,326 336,240 C336,152 282,86 200,86 Z" fill="#0B0A09"/>
+        <path d="M126,118 L108,66 L150,64 L158,100 Z" fill="#0B0A09"/>
+        <path d="M256,104 L282,42 L306,88 L276,122 Z" fill="#0B0A09"/>
+        <path d="M78,168 L46,140 L84,132 Z" fill="#0B0A09"/>
+        <path d="M322,168 L354,140 L316,132 Z" fill="#0B0A09"/>
+        <ellipse cx="152" cy="192" rx="26" ry="34" fill="#FF4E1B" transform="rotate(-8 152 192)"/>
+        <ellipse cx="248" cy="192" rx="26" ry="34" fill="#FF4E1B" transform="rotate(8 248 192)"/>
+        <ellipse cx="158" cy="184" rx="7" ry="10" fill="#0B0A09"/>
+        <ellipse cx="242" cy="184" rx="7" ry="10" fill="#0B0A09"/>
+        <path d="M110,252 C140,296 260,296 290,252 C282,318 118,318 110,252 Z" fill="#EFE9DF"/>
+        <g fill="#0B0A09">
+          <path d="M124,262 l9,16 9,-13 Z"/><path d="M146,272 l9,17 9,-14 Z"/><path d="M170,279 l9,17 9,-15 Z"/>
+          <path d="M194,282 l9,17 9,-16 Z"/><path d="M218,279 l9,16 9,-16 Z"/><path d="M242,272 l9,15 9,-16 Z"/>
+          <path d="M264,260 l8,14 9,-14 Z"/>
+          <path d="M140,304 l8,-13 8,12 Z"/><path d="M164,310 l8,-13 8,12 Z"/><path d="M190,313 l8,-13 8,13 Z"/>
+          <path d="M216,311 l8,-14 8,12 Z"/><path d="M240,305 l8,-14 8,11 Z"/><path d="M260,296 l7,-12 8,10 Z"/>
+        </g>
+        <ellipse cx="200" cy="345" rx="72" ry="20" fill="url(#ht-t)"/>
+        <g fill="#0B0A09">
+          <path d="M62,246 L30,238 L58,262 L34,266 L60,282 L44,292 L66,296 Z"/>
+          <path d="M338,246 L370,238 L342,262 L366,266 L340,282 L356,292 L334,296 Z"/>
+        </g>
+        <!-- líneas de anotación -->
+        <g stroke="#0B0A09" stroke-width="1" opacity=".45">
+          <line x1="108" y1="66" x2="52" y2="46"/>
+          <line x1="290" y1="270" x2="352" y2="300"/>
+        </g>
+        <g font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#0B0A09" opacity=".7" letter-spacing="1.5">
+          <text x="14" y="40">CUERNO DESPUNTADO</text>
+          <text x="300" y="316">13 DIENTES</text>
+        </g>
+      </svg>
+      <div class="serial2 mono">TINTA + EMBER — NADA MÁS</div>
+    </div>
+    <ul class="callouts">
+      <li><span class="idx mono">SP-01</span><div><div class="name display">Cuerno despuntado</div><div class="desc">Cicatriz de lore. La asimetría hace la silueta reconocible a 16 píxeles.</div></div></li>
+      <li><span class="idx mono">SP-02</span><div><div class="name display">Ojos ember</div><div class="desc">El único color sobre la tinta. #FF4E1B — la brasa del trompo.</div></div></li>
+      <li><span class="idx mono">SP-03</span><div><div class="name display">13 dientes</div><div class="desc">Sonrisa ancha, nunca amenaza. Fuerte como Kurama, entrañable como Pooh.</div></div></li>
+      <li><span class="idx mono">SP-04</span><div><div class="name display">Garra ×3</div><div class="desc">Tres garras. Casi siempre sosteniendo un kebab. Es la marca mínima (Modo A).</div></div></li>
+      <li><span class="idx mono">SP-05</span><div><div class="name display">Panza halftone</div><div class="desc">Textura de puntos — funciona en stencil, bordado, sticker y peluche.</div></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ MENÚ ══════════════ -->
+<section class="rv">
+  <div class="label">03 — EL MENÚ</div>
+  <div class="menu-grid">
+    <div class="menu-item"><div class="row"><h3>Kebo Clásico</h3><span class="price mono">$139</span></div><p>Pollo marinado 24 h — yogurt, ajo, paprika, comino. Pita caliente, verdura fresca, SALSA KEBO.</p></div>
+    <div class="menu-item"><div class="row"><h3>La Bestia</h3><span class="price mono">$159</span></div><p>Res al fuego estilo Adana — pimentón y sumac. Para hambres con historial.</p></div>
+    <div class="menu-item"><div class="row"><h3>Doble Filo</h3><span class="price mono">$169</span></div><p>Pollo + res. Cuando tu monstruo no sabe decidir, dale los dos.</p></div>
+    <div class="menu-item"><div class="row"><h3>El Herbívoro</h3><span class="price mono">$129</span></div><p>Falafel crujiente + champiñón al fuego. Los monstruos herbívoros también rugen.</p></div>
+    <div class="menu-item"><div class="row"><h3>El Alpha</h3><span class="price mono">$199</span></div><p>Res premium, queso fundido a la plancha, MONSTER BITES adentro, salsa ember. El jefe final.</p></div>
+    <div class="menu-item"><span class="chip">EDICIÓN LIMITADA</span><div class="row"><h3>Monster del Mes</h3><span class="price mono">$179</span></div><p>Mes 001: AL PASTOR-DÖNER — piña tatemada. El kebab que cuenta nuestra historia. Muere en 30 días.</p></div>
+  </div>
+  <p class="menu-note">TODO KEBAB DISPONIBLE COMO MONSTER BOWL (+$10) · SALSA KEBO EN TODO · COMBOS: MONSTER FEED $219 / ALPHA PACK $379 / LA MANADA $749 / MIDNIGHT RUN $229</p>
+</section>
+
+<!-- ══════════════ MONSTER BITES ══════════════ -->
+<section class="rv">
+  <div class="label">04 — MONSTER BITES · PAPA CAMBRAY</div>
+  <div class="bites-sizes">
+    <div class="size"><div class="n display">6</div><div class="nm display">Cría</div><div class="pz mono">PIEZAS — $69</div></div>
+    <div class="size"><div class="n display">9</div><div class="nm display">Bestia</div><div class="pz mono">PIEZAS + DIP — $89</div></div>
+    <div class="size"><div class="n display">20</div><div class="nm display">Horda</div><div class="pz mono">PIEZAS + DIP — $159</div></div>
+  </div>
+  <div class="sazon">
+    <span>Ajo Parmesano</span><span>Fuego</span><span>Chipotle BBQ</span><span>Buffalo</span>
+    <span>Lemon Pepper</span><span>Trufa Negra</span><span>Za'atar</span><span>Mantequilla Romero</span>
+  </div>
+  <p class="menu-note">CONFITADAS · FRITAS · SMASH · 10 SACUDIDAS EN LA COCTELERA. ELIGE TU VENENO.</p>
+</section>
+
+<!-- ══════════════ IDENTIDAD ══════════════ -->
+<section class="rv">
+  <div class="label">05 — IDENTIDAD</div>
+  <div class="paleta">
+    <div class="swatch" style="background:#0B0A09;border:1px solid rgba(239,233,223,.08)"><span class="sn" style="color:#EFE9DF">TINTA</span><span class="sx" style="color:#EFE9DF">#0B0A09 — dominante</span></div>
+    <div class="swatch" style="background:#EFE9DF"><span class="sn" style="color:#0B0A09">HUESO</span><span class="sx" style="color:#0B0A09">#EFE9DF — soporte</span></div>
+    <div class="swatch" style="background:#FF4E1B"><span class="sn" style="color:#0B0A09">EMBER</span><span class="sx" style="color:#0B0A09">#FF4E1B — único acento</span></div>
+    <div class="swatch" style="background:#8A837A"><span class="sn" style="color:#0B0A09">HUMO</span><span class="sx" style="color:#0B0A09">#8A837A — secundario</span></div>
+  </div>
+  <div class="type-spec">
+    <div class="cell">
+      <div class="tname mono">DISPLAY — ANTON</div>
+      <div class="sample-a">Dale de comer al monstruo</div>
+    </div>
+    <div class="cell">
+      <div class="tname mono">TÉCNICA — IBM PLEX MONO</div>
+      <div class="sample-b">ORDEN #0347 — ALIMENTADO POR KEBO<br>23:41 · MORELIA · 380 G · SIN PIEDAD</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ COLECCIONABLES ══════════════ -->
+<section class="rv">
+  <div class="label">06 — EL BESTIARIO · SERIE 001</div>
+  <div class="stickers">
+    <div class="sticker">
+      <svg viewBox="0 0 40 40"><path d="M20,6 C11,6 6,13 6,22 C6,31 12,35 20,35 C28,35 34,31 34,22 C34,13 29,6 20,6 Z" fill="#EFE9DF"/><ellipse cx="15" cy="18" rx="3" ry="4" fill="#FF4E1B"/><ellipse cx="25" cy="18" rx="3" ry="4" fill="#FF4E1B"/></svg>
+      <span class="stn">Kebo</span>
+    </div>
+    <div class="sticker">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="12" fill="#EFE9DF"/><ellipse cx="17" cy="18" rx="2" ry="3" fill="#FF4E1B"/><ellipse cx="23" cy="18" rx="2" ry="3" fill="#FF4E1B"/></svg>
+      <span class="stn">La Cría</span>
+    </div>
+    <div class="sticker">
+      <svg viewBox="0 0 40 40"><path d="M20,10 L8,22 L14,20 L12,30 L20,22 L28,30 L26,20 L32,22 Z" fill="#EFE9DF"/><circle cx="20" cy="17" r="2" fill="#FF4E1B"/></svg>
+      <span class="stn">El Nocturno</span>
+    </div>
+    <div class="sticker">
+      <svg viewBox="0 0 40 40"><rect x="12" y="10" width="16" height="20" rx="4" fill="#EFE9DF"/><rect x="17" y="14" width="6" height="10" fill="#FF4E1B"/></svg>
+      <span class="stn">El Gódin</span>
+    </div>
+    <div class="sticker">
+      <svg viewBox="0 0 40 40"><rect x="6" y="17" width="6" height="8" fill="#EFE9DF"/><rect x="28" y="17" width="6" height="8" fill="#EFE9DF"/><rect x="12" y="19" width="16" height="4" fill="#FF4E1B"/></svg>
+      <span class="stn">Bestia Gym</span>
+    </div>
+    <div class="sticker gold">
+      <svg viewBox="0 0 40 40"><path d="M20,5 L23,15 L33,15 L25,21 L28,32 L20,25 L12,32 L15,21 L7,15 L17,15 Z" fill="#FF4E1B"/></svg>
+      <span class="stn">El Dorado 1/50</span>
+    </div>
+  </div>
+  <p class="stickers-note">
+    UN STICKER EN CADA PEDIDO. 12 EN LA SERIE. <em>EL DORADO</em> APARECE 1 DE CADA 50 BOLSAS = KEBAB GRATIS.<br>
+    COLECCIÓN COMPLETA = TU MONSTRUO EVOLUCIONA: HUEVO → CRÍA → BESTIA → KAIJU → ALPHA.
+  </p>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="rv">
+  <div class="big display">El monstruo<br>no duerme.<span> Pide.</span></div>
+  <div class="foot-meta mono">
+    <span>MONSTER KEBABS® — DARK KITCHEN</span>
+    <span>UBER EATS · RAPPI · DIDI FOOD</span>
+    <span>MORELIA, MICHOACÁN — 2026</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

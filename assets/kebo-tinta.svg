@@ -1,0 +1,31 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- KEBO canon — tinta sobre hueso -->
+  <rect width="400" height="400" fill="#EFE9DF"/>
+  <defs>
+    <pattern id="ht" width="9" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="4.5" cy="4.5" r="1.5" fill="#EFE9DF" opacity=".35"/>
+    </pattern>
+  </defs>
+  <path d="M200,86 C118,86 64,152 64,240 C64,326 122,368 200,368 C278,368 336,326 336,240 C336,152 282,86 200,86 Z" fill="#0B0A09"/>
+  <path d="M126,118 L108,66 L150,64 L158,100 Z" fill="#0B0A09"/>
+  <path d="M256,104 L282,42 L306,88 L276,122 Z" fill="#0B0A09"/>
+  <path d="M78,168 L46,140 L84,132 Z" fill="#0B0A09"/>
+  <path d="M322,168 L354,140 L316,132 Z" fill="#0B0A09"/>
+  <ellipse cx="152" cy="192" rx="26" ry="34" fill="#FF4E1B" transform="rotate(-8 152 192)"/>
+  <ellipse cx="248" cy="192" rx="26" ry="34" fill="#FF4E1B" transform="rotate(8 248 192)"/>
+  <ellipse cx="158" cy="184" rx="7" ry="10" fill="#0B0A09"/>
+  <ellipse cx="242" cy="184" rx="7" ry="10" fill="#0B0A09"/>
+  <path d="M110,252 C140,296 260,296 290,252 C282,318 118,318 110,252 Z" fill="#EFE9DF"/>
+  <g fill="#0B0A09">
+    <path d="M124,262 l9,16 9,-13 Z"/><path d="M146,272 l9,17 9,-14 Z"/><path d="M170,279 l9,17 9,-15 Z"/>
+    <path d="M194,282 l9,17 9,-16 Z"/><path d="M218,279 l9,16 9,-16 Z"/><path d="M242,272 l9,15 9,-16 Z"/>
+    <path d="M264,260 l8,14 9,-14 Z"/>
+    <path d="M140,304 l8,-13 8,12 Z"/><path d="M164,310 l8,-13 8,12 Z"/><path d="M190,313 l8,-13 8,13 Z"/>
+    <path d="M216,311 l8,-14 8,12 Z"/><path d="M240,305 l8,-14 8,11 Z"/><path d="M260,296 l7,-12 8,10 Z"/>
+  </g>
+  <ellipse cx="200" cy="345" rx="72" ry="20" fill="url(#ht)"/>
+  <g fill="#0B0A09">
+    <path d="M62,246 L30,238 L58,262 L34,266 L60,282 L44,292 L66,296 Z"/>
+    <path d="M338,246 L370,238 L342,262 L366,266 L340,282 L356,292 L334,296 Z"/>
+  </g>
+</svg>
