@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NÚMEROS — MONSTER KEBABS (privado)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand.css">
+<style>
+  .priv{background:var(--ember);color:var(--tinta);font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:.2em;text-align:center;padding:6px;text-transform:uppercase;position:fixed;top:0;left:0;right:0;z-index:200}
+  .topbar{top:24px}
+  .presets{display:flex;gap:10px;margin-bottom:30px;flex-wrap:wrap}
+  .preset{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    border:1px solid var(--line);background:none;color:var(--hueso);padding:10px 20px;cursor:pointer;transition:.2s}
+  .preset:hover,.preset.on{border-color:var(--ember);color:var(--ember)}
+  .panel{display:grid;grid-template-columns:380px 1fr;gap:24px;align-items:start}
+  .inputs{border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;gap:20px}
+  .inp label{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--humo);margin-bottom:8px}
+  .inp label b{color:var(--hueso);font-weight:500}
+  .inp input[type=range]{width:100%;accent-color:var(--ember);background:transparent}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .kpi{background:var(--tinta);padding:22px 20px}
+  .kpi .kv{font-family:'Anton',sans-serif;font-size:34px;line-height:1;margin-top:8px}
+  .kpi .kl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--humo);text-transform:uppercase}
+  .kpi .kv.pos{color:var(--hueso)} .kpi .kv.neg{color:var(--ember)}
+  .kpi .ks{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--humo);margin-top:6px}
+  .pl{margin-top:24px;border:1px solid var(--line)}
+  .pl .row{display:grid;grid-template-columns:1fr auto auto;gap:14px;padding:12px 20px;border-bottom:1px solid var(--line);
+    font-size:13px;color:var(--humo);align-items:baseline}
+  .pl .row:last-child{border-bottom:none}
+  .pl .row .amt{font-family:'IBM Plex Mono',monospace;color:var(--hueso)}
+  .pl .row .pct{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--humo);width:52px;text-align:right}
+  .pl .row.total{background:var(--tinta2)}
+  .pl .row.total .amt{color:var(--ember);font-size:15px}
+  .chartwrap{margin-top:24px;border:1px solid var(--line);padding:24px}
+  canvas{width:100%;height:220px;display:block}
+  .sens{margin-top:24px;border:1px solid var(--line);padding:24px;overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-family:'IBM Plex Mono',monospace;font-size:11px}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:right;color:var(--humo)}
+  th{color:var(--ember);font-weight:400;letter-spacing:.08em}
+  td.pos{color:var(--hueso)} td.neg{color:var(--ember)}
+  td.cur{outline:2px solid var(--ember);outline-offset:-2px}
+  .prod{margin-top:24px;border:1px solid var(--line)}
+  .prod .row{display:grid;grid-template-columns:1fr auto auto auto;gap:12px;padding:11px 20px;border-bottom:1px solid var(--line);
+    font-size:12.5px;color:var(--humo);font-family:'IBM Plex Mono',monospace}
+  .prod .row:last-child{border-bottom:none}
+  .prod .row span:first-child{color:var(--hueso);font-family:'Inter',sans-serif}
+  .prod .head{color:var(--ember);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  @media(max-width:920px){.panel{grid-template-columns:1fr}.kpis{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="priv">HERRAMIENTA DE TRABAJO — TODAS LAS CIFRAS SON ESTIMADAS Y SE VALIDAN EN CAMPO ANTES DE INVERTIR</div>
+<div class="topbar">
+  <div><b>MONSTER KEBABS</b><span class="dot"> ●</span> MODELO FINANCIERO</div>
+  <nav class="nav"><a href="index.html">← MARCA</a><a href="plan.html">PLAN MAESTRO →</a></nav>
+</div>
+
+<section class="page-head">
+  <div class="label">LOS NÚMEROS — MUÉVELES</div>
+  <h1 class="display">La calculadora</h1>
+  <p class="sub">El modelo del cap. 05 hecho herramienta: mueve los supuestos y mira qué pasa con la utilidad,
+  el punto de equilibrio y el payback. Cuando tengas cotizaciones reales, pon los números verdaderos aquí
+  y la decisión se toma sola.</p>
+</section>
+
+<section style="padding-top:0">
+  <div class="presets">
+    <button class="preset" data-p="frio">🩶 FRÍO — 15/DÍA</button>
+    <button class="preset on" data-p="base">⚪ BASE — 35/DÍA</button>
+    <button class="preset" data-p="fuego">🔥 FUEGO — 60/DÍA</button>
+  </div>
+
+  <div class="panel">
+    <div class="inputs">
+      <div class="inp"><label>Órdenes / día <b id="v_ord">35</b></label><input type="range" id="i_ord" min="5" max="100" value="35"></div>
+      <div class="inp"><label>Ticket promedio <b id="v_tkt">$240</b></label><input type="range" id="i_tkt" min="150" max="400" step="5" value="240"></div>
+      <div class="inp"><label>Comisión plataforma <b id="v_com">30%</b></label><input type="range" id="i_com" min="15" max="35" value="30"></div>
+      <div class="inp"><label>Food cost + empaque <b id="v_fc">32%</b></label><input type="range" id="i_fc" min="22" max="45" value="32"></div>
+      <div class="inp"><label>Renta / mes <b id="v_renta">$12,000</b></label><input type="range" id="i_renta" min="5000" max="30000" step="500" value="12000"></div>
+      <div class="inp"><label>Nómina / mes <b id="v_nom">$22,000</b></label><input type="range" id="i_nom" min="10000" max="60000" step="1000" value="22000"></div>
+      <div class="inp"><label>Servicios / mes <b id="v_srv">$6,500</b></label><input type="range" id="i_srv" min="2000" max="15000" step="500" value="6500"></div>
+      <div class="inp"><label>Marketing / mes <b id="v_mkt">$8,000</b></label><input type="range" id="i_mkt" min="0" max="30000" step="500" value="8000"></div>
+      <div class="inp"><label>Otros fijos / mes <b id="v_otr">$6,000</b></label><input type="range" id="i_otr" min="0" max="20000" step="500" value="6000"></div>
+      <div class="inp"><label>CAPEX inicial <b id="v_cap">$250,000</b></label><input type="range" id="i_cap" min="100000" max="500000" step="10000" value="250000"></div>
+    </div>
+
+    <div>
+      <div class="kpis">
+        <div class="kpi"><div class="kl">Utilidad operativa / mes</div><div class="kv" id="k_util">—</div><div class="ks" id="k_utilpct">—</div></div>
+        <div class="kpi"><div class="kl">Punto de equilibrio</div><div class="kv" id="k_be">—</div><div class="ks">órdenes / día</div></div>
+        <div class="kpi"><div class="kl">Payback del CAPEX</div><div class="kv" id="k_pay">—</div><div class="ks" id="k_payd">con curva de arranque</div></div>
+        <div class="kpi"><div class="kl">Margen de contribución / orden</div><div class="kv" id="k_mc">—</div><div class="ks" id="k_mcp">—</div></div>
+        <div class="kpi"><div class="kl">Venta / mes</div><div class="kv" id="k_venta">—</div><div class="ks" id="k_ordm">—</div></div>
+        <div class="kpi"><div class="kl">Utilidad año 1 (con arranque)</div><div class="kv" id="k_a1">—</div><div class="ks">antes de impuestos</div></div>
+      </div>
+
+      <div class="pl" id="pl"></div>
+
+      <div class="chartwrap">
+        <div class="label" style="margin-bottom:16px">CAJA ACUMULADA — 12 MESES (ARRANQUE: 40→55→70→80→90→100%)</div>
+        <canvas id="chart" width="900" height="220"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="sens">
+    <div class="label" style="margin-bottom:16px">SENSIBILIDAD — UTILIDAD/MES: ÓRDENES × TICKET (CON TUS FIJOS Y % ACTUALES)</div>
+    <table id="sens"></table>
+  </div>
+
+  <div class="prod">
+    <div class="row head"><span>MARGEN POR PRODUCTO (BRUTO, DEL CAP. 05)</span><span>PRECIO</span><span>COSTO</span><span>FOOD COST</span></div>
+    <div class="row"><span>Kebo Clásico (pollo)</span><span>$139</span><span>~$48</span><span>34.6%</span></div>
+    <div class="row"><span>Monster Bites Bestia (9 pzas)</span><span>$89</span><span>~$24</span><span>27.0%</span></div>
+    <div class="row"><span>Monster Bites Horda (20 pzas)</span><span>$159</span><span>~$44</span><span>27.7%</span></div>
+    <div class="row"><span>Limonada Negra / bebidas casa</span><span>$45–55</span><span>~$9</span><span>16–20%</span></div>
+    <div class="row"><span>Combo Monster Feed</span><span>$219</span><span>~$75</span><span>34.2%</span></div>
+    <div class="row"><span>Salsa extra (upsell)</span><span>$15</span><span>~$4</span><span>26.7%</span></div>
+  </div>
+  <p class="note">LECTURA: EL KEBAB VENDE, LAS PAPAS Y BEBIDAS DEJAN. POR ESO EL COMBO ES LA UNIDAD DE NEGOCIO —
+  <em>META: >45% DE ÓRDENES CON COMBO.</em></p>
+</section>
+
+<footer>
+  <div class="big display">Los pesos<br>por orden<span> pagan la renta.</span></div>
+  <div class="foot-meta">
+    <span>MONSTER KEBABS® — MODELO V1</span>
+    <span>DEFAULTS = CAP. 05 (ESTIMADOS)</span>
+    <span>PRIVADO — JUL 2026</span>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const fmt = n => "$" + Math.round(n).toLocaleString("en-US");
+const RAMP = [.40,.55,.70,.80,.90,1,1,1,1,1,1,1];
+const PRESETS = { frio:{i_ord:15}, base:{i_ord:35}, fuego:{i_ord:60} };
+const IDS = ["i_ord","i_tkt","i_com","i_fc","i_renta","i_nom","i_srv","i_mkt","i_otr","i_cap"];
+
+function vals(){
+  return {
+    ord:+$("i_ord").value, tkt:+$("i_tkt").value, com:+$("i_com").value/100, fc:+$("i_fc").value/100,
+    fijos:+$("i_renta").value + +$("i_nom").value + +$("i_srv").value + +$("i_mkt").value + +$("i_otr").value,
+    capex:+$("i_cap").value
+  };
+}
+
+function calc(){
+  const v = vals();
+  $("v_ord").textContent = v.ord; $("v_tkt").textContent = fmt(v.tkt);
+  $("v_com").textContent = Math.round(v.com*100)+"%"; $("v_fc").textContent = Math.round(v.fc*100)+"%";
+  $("v_renta").textContent = fmt(+$("i_renta").value); $("v_nom").textContent = fmt(+$("i_nom").value);
+  $("v_srv").textContent = fmt(+$("i_srv").value); $("v_mkt").textContent = fmt(+$("i_mkt").value);
+  $("v_otr").textContent = fmt(+$("i_otr").value); $("v_cap").textContent = fmt(v.capex);
+
+  const mPct = 1 - v.com - v.fc;                    // margen de contribución %
+  const mc = v.tkt * mPct;                          // $ por orden
+  const ordMes = v.ord * 30;
+  const venta = ordMes * v.tkt;
+  const contrib = ordMes * mc;
+  const util = contrib - v.fijos;
+  const be = v.fijos / mc / 30;                     // órdenes/día
+
+  // ramp año 1
+  let cum = -v.capex, cumSerie = [], utilA1 = 0, payback = null;
+  RAMP.forEach((r,i)=>{
+    const u = (v.ord*r*30*mc) - v.fijos;
+    utilA1 += u; cum += u; cumSerie.push(cum);
+    if(payback===null && cum>=0) payback = i+1;
+  });
+
+  $("k_util").textContent = fmt(util); $("k_util").className = "kv " + (util>=0?"pos":"neg");
+  $("k_utilpct").textContent = venta>0 ? (util/venta*100).toFixed(1)+"% de la venta" : "—";
+  $("k_be").textContent = be.toFixed(1); $("k_be").className = "kv " + (v.ord>=be?"pos":"neg");
+  $("k_pay").textContent = payback ? payback+" meses" : ">12 m";
+  $("k_pay").className = "kv " + (payback && payback<=12 ? "pos":"neg");
+  $("k_mc").textContent = fmt(mc); $("k_mc").className="kv pos";
+  $("k_mcp").textContent = (mPct*100).toFixed(0)+"% del ticket";
+  $("k_venta").textContent = fmt(venta); $("k_venta").className="kv pos";
+  $("k_ordm").textContent = ordMes.toLocaleString() + " órdenes/mes";
+  $("k_a1").textContent = fmt(utilA1); $("k_a1").className = "kv " + (utilA1>=0?"pos":"neg");
+
+  // P&L
+  $("pl").innerHTML = [
+    ["Venta", venta, "100%"],
+    ["(−) Comisión plataformas", -venta*v.com, Math.round(v.com*100)+"%"],
+    ["(−) Insumos + empaque", -venta*v.fc, Math.round(v.fc*100)+"%"],
+    ["(=) Contribución", contrib, Math.round(mPct*100)+"%"],
+    ["(−) Fijos (renta+nómina+servicios+mkt+otros)", -v.fijos, venta>0?Math.round(v.fijos/venta*100)+"%":"—"],
+    ["(=) UTILIDAD OPERATIVA / MES", util, venta>0?(util/venta*100).toFixed(1)+"%":"—"]
+  ].map((r,i)=>`<div class="row${i===5?" total":""}"><span>${r[0]}</span><span class="amt">${fmt(r[1])}</span><span class="pct">${r[2]}</span></div>`).join("");
+
+  // chart
+  const c = $("chart"), ctx = c.getContext("2d");
+  const W = c.width, H = c.height; ctx.clearRect(0,0,W,H);
+  const lo = Math.min(-v.capex, ...cumSerie), hi = Math.max(0, ...cumSerie);
+  const y = val => H - 24 - ( (val-lo)/(hi-lo||1) ) * (H-48);
+  ctx.strokeStyle = "rgba(239,233,223,.25)"; ctx.beginPath(); ctx.moveTo(0,y(0)); ctx.lineTo(W,y(0)); ctx.stroke();
+  const bw = W/12*0.55;
+  cumSerie.forEach((cv,i)=>{
+    const x = i*(W/12) + (W/12-bw)/2;
+    ctx.fillStyle = cv>=0 ? "#FF4E1B" : "rgba(138,131,122,.55)";
+    const y0 = y(0), y1 = y(cv);
+    ctx.fillRect(x, Math.min(y0,y1), bw, Math.abs(y0-y1)||1);
+    ctx.fillStyle = "#8A837A"; ctx.font = "10px IBM Plex Mono"; ctx.textAlign="center";
+    ctx.fillText("M"+(i+1), x+bw/2, H-8);
+  });
+
+  // sensibilidad
+  const ords=[15,25,35,45,60], tkts=[200,220,240,260];
+  let html = "<tr><th>ÓRD/DÍA ↓ · TICKET →</th>" + tkts.map(t=>`<th>$${t}</th>`).join("") + "</tr>";
+  ords.forEach(o=>{
+    html += `<tr><th>${o}</th>` + tkts.map(t=>{
+      const u = o*30*t*mPct - v.fijos;
+      const cur = (o===v.ord && t===v.tkt) ? " cur" : "";
+      return `<td class="${u>=0?"pos":"neg"}${cur}">${fmt(u)}</td>`;
+    }).join("") + "</tr>";
+  });
+  $("sens").innerHTML = html;
+}
+
+IDS.forEach(id => $(id).addEventListener("input", calc));
+document.querySelectorAll(".preset").forEach(b => b.addEventListener("click", ()=>{
+  document.querySelectorAll(".preset").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+  Object.entries(PRESETS[b.dataset.p]).forEach(([k,val])=>$(k).value=val); calc();
+}));
+calc();
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLAN MAESTRO — MONSTER KEBABS (privado)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand.css">
+<style>
+  .priv{background:var(--ember);color:var(--tinta);font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:.2em;text-align:center;padding:6px;text-transform:uppercase;position:fixed;top:0;left:0;right:0;z-index:200}
+  .topbar{top:24px}
+  .master{border:1px solid var(--line);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+  .master .mtxt{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--humo);text-transform:uppercase}
+  .master .mtxt b{color:var(--ember)}
+  .mbar{flex:1;min-width:200px;height:6px;background:var(--tinta2);position:relative}
+  .mbar i{position:absolute;left:0;top:0;bottom:0;background:var(--ember);transition:width .4s}
+  .fase{border:1px solid var(--line);margin-bottom:26px}
+  .fase-head{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:20px 24px;border-bottom:1px solid var(--line);background:var(--tinta2)}
+  .fase-head .fn{font-family:'Anton',sans-serif;font-size:26px;color:var(--ember)}
+  .fase-head h2{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase}
+  .fase-head .fmeta{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--humo);text-transform:uppercase;text-align:right;line-height:1.8}
+  .fase-head .fmeta b{color:var(--hueso);font-weight:500}
+  .tarea{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start;padding:14px 24px;border-bottom:1px solid var(--line)}
+  .tarea:last-of-type{border-bottom:none}
+  .tarea input{width:17px;height:17px;accent-color:var(--ember);margin-top:2px;cursor:pointer}
+  .tarea .tt{font-size:14px;color:var(--hueso);line-height:1.5;cursor:pointer}
+  .tarea .tt small{display:block;color:var(--humo);font-size:12px;margin-top:3px}
+  .tarea .who{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;padding:4px 10px;border:1px solid var(--line);color:var(--humo);white-space:nowrap}
+  .tarea .who.yo{border-color:var(--ember);color:var(--ember)}
+  .tarea.done .tt{color:var(--humo);text-decoration:line-through}
+  .gate{border:1px dashed var(--ember);padding:20px 24px;margin-bottom:26px}
+  .gate .gt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.2em;color:var(--ember);text-transform:uppercase;margin-bottom:10px}
+  .gate p{color:var(--humo);font-size:13.5px;line-height:1.7;max-width:760px}
+  .gate b{color:var(--hueso);font-weight:600}
+  .budget{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+  .budget .b{background:var(--tinta);padding:20px}
+  .budget .bl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--humo);text-transform:uppercase}
+  .budget .bv{font-family:'Anton',sans-serif;font-size:26px;margin-top:6px}
+  .budget .bv.e{color:var(--ember)}
+  @media(max-width:820px){.budget{grid-template-columns:repeat(2,1fr)}.fase-head{grid-template-columns:auto 1fr}.fase-head .fmeta{text-align:left;grid-column:2}}
+</style>
+</head>
+<body>
+
+<div class="priv">PLAN DE TRABAJO — EL PROGRESO SE GUARDA EN TU NAVEGADOR (CADA QUIEN VE SUS PROPIAS PALOMITAS)</div>
+<div class="topbar">
+  <div><b>MONSTER KEBABS</b><span class="dot"> ●</span> PLAN MAESTRO</div>
+  <nav class="nav"><a href="index.html">← MARCA</a><a href="numeros.html">NÚMEROS →</a></nav>
+</div>
+
+<section class="page-head">
+  <div class="label">HOY ES 8 DE JULIO 2026 — GRAND OPENING: VIERNES 9 DE OCTUBRE</div>
+  <h1 class="display">El plan</h1>
+  <p class="sub">13 semanas de la nada al despertar, con dos compuertas donde el plan se detiene y decide
+  con datos. Cada tarea tiene dueño. Palomea y se guarda solo.</p>
+</section>
+
+<section style="padding-top:0">
+  <div class="master">
+    <span class="mtxt">PROGRESO TOTAL — <b id="mpct">0%</b></span>
+    <div class="mbar"><i id="mbarfill" style="width:0%"></i></div>
+    <span class="mtxt" id="mcount">0 / 0</span>
+  </div>
+
+  <!-- FASE 0 -->
+  <div class="fase" data-fase="0">
+    <div class="fase-head">
+      <span class="fn">F0</span><h2>Validación</h2>
+      <span class="fmeta"><b>8 – 20 JUL</b> · 2 SEMANAS<br>PRESUPUESTO ~$1,500</span>
+    </div>
+    <div class="tarea" data-id="f0-cocina"><input type="checkbox" id="f0-cocina"><label class="tt" for="f0-cocina">La prueba de cocina<small>2 kg pollo + pita + papa cambray. Marinado 24 h (receta cap. 04). Cocinar para 5 personas que NO sean familia. Anotar TODO.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f0-barrido"><input type="checkbox" id="f0-barrido"><label class="tt" for="f0-barrido">Barrido de competencia en apps (1 h)<small>Uber/Rappi/DiDi Morelia: "kebab", "shawarma", "árabe". Capturas de menú, precios, ratings, # reseñas. Checklist en cap. 02.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f0-insumos"><input type="checkbox" id="f0-insumos"><label class="tt" for="f0-insumos">Cotizar insumos con 2 proveedores foodservice<small>Pollo, res, pita, papa cambray, aceite. Pedir lista de precios por volumen.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f0-rentas"><input type="checkbox" id="f0-rentas"><label class="tt" for="f0-rentas">3 cotizaciones de renta reales<small>Triángulo Camelinas–Chapultepec–Ventura Puente. 60–90 m², gas, extracción posible, acceso repartidores.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f0-trompo"><input type="checkbox" id="f0-trompo"><label class="tt" for="f0-trompo">Cotizar asador vertical + cortador<small>Proveedor CDMX/GDL, con envío e instalación a Morelia. Plan B: arrancar con plancha.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f0-apps"><input type="checkbox" id="f0-apps"><label class="tt" for="f0-apps">Confirmar comisiones y onboarding de las 3 plataformas<small>% real, tiempos de alta, requisitos (RFC, cuenta, menú, fotos).</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f0-impi"><input type="checkbox" id="f0-impi"><label class="tt" for="f0-impi">Búsqueda fonética en IMPI + llamada con abogado de marcas<small>"MONSTER" clases 43/29/30/35. Riesgo Monster Energy. Alternos listos: KAIJU KEBAB / MONSTRO / KEBO.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f0-numeros"><input type="checkbox" id="f0-numeros"><label class="tt" for="f0-numeros">Meter los números reales a la calculadora<small>Con las cotizaciones: actualizar numeros.html y rehacer cap. 05. Yo lo hago contigo en una sesión.</small></label><span class="who yo">TÚ + YO</span></div>
+    <div class="tarea" data-id="f0-foco"><input type="checkbox" id="f0-foco"><label class="tt" for="f0-foco">Decidir horas/semana para esto vs RAÍZ<small>Por escrito. Si son <10 h/sem, este plan necesita un operador desde F1.</small></label><span class="who">TÚ</span></div>
+  </div>
+
+  <!-- COMPUERTA 1 -->
+  <div class="gate">
+    <div class="gt">⛩ COMPUERTA #1 — LUNES 20 DE JULIO · GO / NO-GO</div>
+    <p>Se avanza a F1 SOLO si: <b>(1)</b> la prueba de cocina gustó (4/5 repetirían), <b>(2)</b> no hay un incumbente
+    dominante de kebab en las apps, <b>(3)</b> los números reales dan contribución ≥35% y punto de equilibrio ≤25
+    órdenes/día, <b>(4)</b> el CAPEX real cabe en ≤$300k, y <b>(5)</b> el nombre tiene camino legal (o se adopta alterno).
+    Si algo falla: se ajusta o se archiva sin drama — costó $1,500 saberlo, no $300,000.</p>
+  </div>
+
+  <!-- FASE 1 -->
+  <div class="fase" data-fase="1">
+    <div class="fase-head">
+      <span class="fn">F1</span><h2>Setup</h2>
+      <span class="fmeta"><b>21 JUL – 31 AGO</b> · 6 SEMANAS<br>PRESUPUESTO ~$250,000 (CAPEX)</span>
+    </div>
+    <div class="tarea" data-id="f1-renta"><input type="checkbox" id="f1-renta"><label class="tt" for="f1-renta">Firmar renta del local<small>Negociar 1–2 meses de gracia por adecuación. Contrato revisado.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f1-legal"><input type="checkbox" id="f1-legal"><label class="tt" for="f1-legal">Alta SAT + permisos locales<small>Régimen adecuado, uso de suelo, aviso de funcionamiento (COFEPRIS), protección civil. Preguntar en ventanilla qué aplica a dark kitchen.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f1-marca"><input type="checkbox" id="f1-marca"><label class="tt" for="f1-marca">Presentar solicitud de marca en IMPI<small>Nombre + logo (la Garra) + personaje (KEBO, diseño). El personaje es defendible aunque el nombre cambie.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f1-obra"><input type="checkbox" id="f1-obra"><label class="tt" for="f1-obra">Adecuación del local<small>Gas, extracción, piso, tarja triple, pintura. Layout del cap. 06: flujo en una dirección.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f1-equipo"><input type="checkbox" id="f1-equipo"><label class="tt" for="f1-equipo">Comprar e instalar equipo<small>Trompo, freidora doble, plancha, refrigeración, mesas acero, campana. Probar TODO una semana antes del soft.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f1-empaque"><input type="checkbox" id="f1-empaque"><label class="tt" for="f1-empaque">Ordenar empaques primera tirada (3 meses)<small>Specs del cap. 06 + empaques.html. Si los mínimos de tirada no salen: caja kraft + sticker grande.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f1-stickers"><input type="checkbox" id="f1-stickers"><label class="tt" for="f1-stickers">Imprimir stickers serie 001<small>12 diseños del bestiario + EL DORADO metálico (1 por cada 50). Troquelado 6 cm.</small></label><span class="who yo">TÚ + YO</span></div>
+    <div class="tarea" data-id="f1-cocinero"><input type="checkbox" id="f1-cocinero"><label class="tt" for="f1-cocinero">Contratar cocinero + estandarizar recetas<small>Gramajes, fotos patrón, tiempos. 1 página por SKU (manual del cap. 06). Marinado SIEMPRE 18–24 h.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f1-fotos"><input type="checkbox" id="f1-fotos"><label class="tt" for="f1-fotos">Sesión de fotos del menú<small>Fondo tinta, luz dura lateral, producto al 80% del frame, vapor real. Con producto YA estandarizado.</small></label><span class="who yo">TÚ + YO</span></div>
+    <div class="tarea" data-id="f1-uber"><input type="checkbox" id="f1-uber"><label class="tt" for="f1-uber">Alta en Uber Eats (solo Uber en soft)<small>Menú corto (≤15 ítems), flagship primero, combos con foto propia. Rappi y DiDi se activan hasta el grand opening.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f1-ig"><input type="checkbox" id="f1-ig"><label class="tt" for="f1-ig">Abrir IG/TikTok en modo teaser<small>"Algo despertó": silueta, ojos ember, stickers QR en la ciudad. SIN decir que es comida (guion del cap. 07).</small></label><span class="who yo">TÚ + YO</span></div>
+  </div>
+
+  <!-- FASE 2 -->
+  <div class="fase" data-fase="2">
+    <div class="fase-head">
+      <span class="fn">F2</span><h2>Pre-lanzamiento</h2>
+      <span class="fmeta"><b>1 – 14 SEP</b> · 2 SEMANAS<br>PRESUPUESTO ~$8,000</span>
+    </div>
+    <div class="tarea" data-id="f2-semilla"><input type="checkbox" id="f2-semilla"><label class="tt" for="f2-semilla">30 pedidos semilla gratis<small>10 micro-influencers de comida de Morelia (1k–20k) + 10 amigos críticos + 10 repartidores de la zona. Cronometrar TODO.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f2-25min"><input type="checkbox" id="f2-25min"><label class="tt" for="f2-25min">Prueba de los 25 minutos en cada SKU<small>Bolsa cerrada 25 min → ¿llega comestible y presentable? Lo que falle se reformula o sale del menú.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f2-reveal"><input type="checkbox" id="f2-reveal"><label class="tt" for="f2-reveal">Reveal: "es comida"<small>El video pilar: EL PRIMO PERDIDO DEL PASTOR (idea #61 del cap. 07). Yo te escribo el guion.</small></label><span class="who yo">TÚ + YO</span></div>
+    <div class="tarea" data-id="f2-embajadores"><input type="checkbox" id="f2-embajadores"><label class="tt" for="f2-embajadores">Reclutar 4 embajadores universitarios<small>Tec, UMSNH, UVAQ, La Salle. Combo semanal gratis + código propio con recompensa por conversión.</small></label><span class="who">TÚ</span></div>
+  </div>
+
+  <!-- COMPUERTA 2 -->
+  <div class="gate">
+    <div class="gt">⛩ COMPUERTA #2 — LUNES 14 DE SEPTIEMBRE · ¿LISTOS PARA COBRAR?</div>
+    <p>Se abre al público SOLO si: <b>(1)</b> orden completa en ≤8 minutos consistente, <b>(2)</b> los 30 pedidos semilla
+    promedian ≥4.5/5 en sabor Y presentación al llegar, <b>(3)</b> la prueba de 25 min pasó en TODOS los SKUs.
+    Abrir con producto flojo quema la marca en las reseñas — y las reseñas no se borran.</p>
+  </div>
+
+  <!-- FASE 3 -->
+  <div class="fase" data-fase="3">
+    <div class="fase-head">
+      <span class="fn">F3</span><h2>Soft opening</h2>
+      <span class="fmeta"><b>15 SEP – 5 OCT</b> · 3 SEMANAS<br>ADS ~$150/DÍA</span>
+    </div>
+    <div class="tarea" data-id="f3-abrir"><input type="checkbox" id="f3-abrir"><label class="tt" for="f3-abrir">Encender Uber Eats (solo Uber)<small>Una plataforma = una operación que dominar. Badge "Nuevo" + promo de plataforma activada.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f3-meta"><input type="checkbox" id="f3-meta"><label class="tt" for="f3-meta">Sostener: 15 órdenes/día · rating ≥4.8 · ≤8 min<small>Pizarrón de KPIs del cap. 06. Se corrige diario hasta lograrlo 7 días seguidos.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f3-ads"><input type="checkbox" id="f3-ads"><label class="tt" for="f3-ads">Meta Ads geo-Morelia $150/día<small>Creativos = formatos firma (trompo ASMR, coctelera, KEBO). Medir costo por primer pedido.</small></label><span class="who yo">TÚ + YO</span></div>
+    <div class="tarea" data-id="f3-contenido"><input type="checkbox" id="f3-contenido"><label class="tt" for="f3-contenido">Cadencia de contenido: 4 TikToks + 3 posts IG / semana<small>Del banco de 100 ideas (cap. 07). 70% mundo / 20% producto / 10% promo.</small></label><span class="who yo">TÚ + YO</span></div>
+  </div>
+
+  <!-- FASE 4 -->
+  <div class="fase" data-fase="4">
+    <div class="fase-head">
+      <span class="fn">F4</span><h2>Grand opening — "El Despertar"</h2>
+      <span class="fmeta"><b>VIERNES 9 DE OCTUBRE</b><br>PRESUPUESTO ~$25,000</span>
+    </div>
+    <div class="tarea" data-id="f4-plataformas"><input type="checkbox" id="f4-plataformas"><label class="tt" for="f4-plataformas">Encender Rappi + DiDi el mismo día<small>Con la operación ya probada en Uber. Menú y fotos idénticos.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f4-drop"><input type="checkbox" id="f4-drop"><label class="tt" for="f4-drop">Drop serie 001 completa + lona/mural EL DESPERTAR<small>El póster de conceptos.html impreso en grande. El mural es contenido antes que decoración.</small></label><span class="who yo">TÚ + YO</span></div>
+    <div class="tarea" data-id="f4-influencers"><input type="checkbox" id="f4-influencers"><label class="tt" for="f4-influencers">5 micro-influencers publicando el mismo viernes<small>Percepción de "está en todos lados". Coordinado, no orgánico.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f4-ads"><input type="checkbox" id="f4-ads"><label class="tt" for="f4-ads">Ads al máximo 2 semanas: Meta $250/día + TikTok $100/día<small>Después se regula según costo por pedido.</small></label><span class="who yo">TÚ + YO</span></div>
+  </div>
+
+  <!-- FASE 5 -->
+  <div class="fase" data-fase="5">
+    <div class="fase-head">
+      <span class="fn">F5</span><h2>Ritmo</h2>
+      <span class="fmeta"><b>OCT – DIC 2026</b><br>REVISIÓN SEMANAL</span>
+    </div>
+    <div class="tarea" data-id="f5-kpis"><input type="checkbox" id="f5-kpis"><label class="tt" for="f5-kpis">Ritual semanal de KPIs (lunes, 30 min)<small>Órdenes/día, rating, food cost real, % combos, merma. Contra la calculadora (numeros.html).</small></label><span class="who yo">TÚ + YO</span></div>
+    <div class="tarea" data-id="f5-mes"><input type="checkbox" id="f5-mes"><label class="tt" for="f5-mes">MONSTER DEL MES #002 en noviembre<small>El #001 (AL PASTOR-DÖNER) muere a los 30 días. Siempre hay uno nuevo y siempre muere.</small></label><span class="who yo">TÚ + YO</span></div>
+    <div class="tarea" data-id="f5-martes"><input type="checkbox" id="f5-martes"><label class="tt" for="f5-martes">Instalar "el monstruo come doble los martes"<small>Promo fija en especie, nunca % de descuento. Protege el precio de referencia.</small></label><span class="who">TÚ</span></div>
+    <div class="tarea" data-id="f5-pl"><input type="checkbox" id="f5-pl"><label class="tt" for="f5-pl">P&L real de octubre y noviembre<small>Contra el escenario de la calculadora. Yo lo armo contigo con tus cortes.</small></label><span class="who yo">TÚ + YO</span></div>
+  </div>
+
+  <!-- COMPUERTA 3 -->
+  <div class="gate">
+    <div class="gt">⛩ COMPUERTA #3 — VIERNES 8 DE ENERO 2027 · DÍA 90</div>
+    <p><b>≥25 órdenes/día sostenidas</b> → escalar (horario nocturno completo, más marketing, planear 2ª cocina
+    con las compuertas del cap. 08). <b>15–25</b> → ajustar menú/precios/zona y 90 días más. <b>&lt;15</b> → replantear
+    en serio: el modelo, la zona o el foco. Con datos, sin ego — la marca y el personaje valen por sí
+    mismos aunque el formato cambie.</p>
+  </div>
+
+  <!-- PRESUPUESTO -->
+  <div class="label">CAJA TOTAL REQUERIDA</div>
+  <div class="budget">
+    <div class="b"><div class="bl">F0 Validación</div><div class="bv">$1.5k</div></div>
+    <div class="b"><div class="bl">F1 CAPEX (incluye colchón 2 meses)</div><div class="bv">$250k</div></div>
+    <div class="b"><div class="bl">F2–F4 Marketing 90 días</div><div class="bv">$40k</div></div>
+    <div class="b"><div class="bl">TOTAL RECOMENDADO</div><div class="bv e">~$290k</div></div>
+  </div>
+  <p class="note">VERSIÓN AUSTERA (~$180K): SIN TROMPO (PLANCHA), LOCAL MÁS CHICO, MERCH BAJO DEMANDA —
+  VÁLIDA SOLO COMO VALIDACIÓN DE 90 DÍAS. <em>LOS NÚMEROS VIVEN EN NUMEROS.HTML — MUÉVELES.</em></p>
+</section>
+
+<footer>
+  <div class="big display">13 semanas.<br>2 compuertas.<span> Sin ego.</span></div>
+  <div class="foot-meta">
+    <span>MONSTER KEBABS® — PLAN MAESTRO V1</span>
+    <span>JUL 8 → OCT 9, 2026</span>
+    <span>PRIVADO</span>
+  </div>
+</footer>
+
+<script>
+const boxes = [...document.querySelectorAll('.tarea input[type=checkbox]')];
+function load(){
+  boxes.forEach(b=>{
+    b.checked = localStorage.getItem('mkplan-'+b.id)==='1';
+    b.closest('.tarea').classList.toggle('done', b.checked);
+  });
+  update();
+}
+function update(){
+  const done = boxes.filter(b=>b.checked).length;
+  const pct = Math.round(done/boxes.length*100);
+  document.getElementById('mpct').textContent = pct+'%';
+  document.getElementById('mcount').textContent = done+' / '+boxes.length;
+  document.getElementById('mbarfill').style.width = pct+'%';
+}
+boxes.forEach(b=>b.addEventListener('change',()=>{
+  localStorage.setItem('mkplan-'+b.id, b.checked?'1':'0');
+  b.closest('.tarea').classList.toggle('done', b.checked);
+  update();
+}));
+load();
+</script>
+</body>
+</html>
