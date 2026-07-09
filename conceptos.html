@@ -51,12 +51,20 @@
         <rect width="480" height="300" fill="url(#ht1)"/>
         <!-- luna ember -->
         <circle cx="368" cy="110" r="64" fill="#FF4E1B"/>
-        <!-- KEBO gigante detrás del acueducto -->
-        <path d="M60,470 C60,290 150,200 250,200 C350,200 430,290 430,470 Z" fill="#141210"/>
-        <path d="M128,242 L100,160 L164,158 L176,216 Z" fill="#141210"/>
-        <path d="M320,226 L356,130 L396,206 L352,250 Z" fill="#141210"/>
-        <ellipse cx="196" cy="330" rx="26" ry="36" fill="#FF4E1B" transform="rotate(-7 196 330)"/>
-        <ellipse cx="300" cy="330" rx="26" ry="36" fill="#FF4E1B" transform="rotate(7 300 330)"/>
+        <!-- KEBO v2 gigante detrás del acueducto -->
+        <g transform="translate(38,160) scale(1.04)">
+          <path d="M252,74 C284,36 316,20 352,12 C318,44 298,66 284,96 Z" fill="#141210"/>
+          <path d="M148,74 L112,34 L86,42 L128,84 Z" fill="#141210"/>
+          <path d="M200,58 L252,74 L278,100 L290,140 L330,132 L296,166 L298,204 L334,224 L294,244 L268,282 L282,312 L250,304 L222,326 L200,338 L178,326 L150,304 L118,312 L132,282 L106,244 L66,224 L102,204 L104,166 L70,132 L110,140 L122,100 L148,74 Z" fill="#141210"/>
+          <path d="M118,168 L182,152 L172,192 L134,196 Z" fill="#FF4E1B"/>
+          <path d="M282,168 L218,152 L228,192 L266,196 Z" fill="#FF4E1B"/>
+          <path d="M118,228 L138,246 L154,232 L172,250 L188,236 L200,252 L212,236 L228,250 L246,232 L262,246 L282,228 C268,298 132,298 118,228 Z" fill="#0B0A09"/>
+          <g fill="#141210">
+            <path d="M138,282 L148,258 L158,280 Z"/><path d="M160,286 L170,262 L180,285 Z"/>
+            <path d="M182,289 L192,264 L202,289 Z"/><path d="M204,289 L214,263 L224,287 Z"/>
+            <path d="M226,285 L236,261 L246,282 Z"/><path d="M248,279 L256,258 L264,275 Z"/>
+          </g>
+        </g>
         <!-- acueducto -->
         <g fill="#EFE9DF">
           <rect x="0" y="430" width="480" height="26"/>
@@ -207,20 +215,27 @@
         <rect x="1000" y="180" width="80" height="220"/>
         <rect x="640" y="260" width="60" height="140"/>
       </g>
-      <!-- KEBO gigante devorando -->
-      <g transform="translate(60,40) scale(0.85)">
-        <path d="M200,86 C118,86 64,152 64,240 C64,326 122,368 200,368 C278,368 336,326 336,240 C336,152 282,86 200,86 Z" fill="#EFE9DF"/>
-        <path d="M126,118 L108,66 L150,64 L158,100 Z" fill="#EFE9DF"/>
-        <path d="M256,104 L282,42 L306,88 L276,122 Z" fill="#EFE9DF"/>
-        <path d="M100,190 q16,-16 32,0" stroke="#FF4E1B" stroke-width="8" fill="none" stroke-linecap="round"/>
-        <path d="M240,190 q16,-16 32,0" stroke="#FF4E1B" stroke-width="8" fill="none" stroke-linecap="round"/>
-        <ellipse cx="200" cy="280" rx="74" ry="48" fill="#0B0A09"/>
+      <!-- KEBO v2 gigante devorando -->
+      <g transform="translate(50,10) scale(0.85)">
+        <path d="M252,74 C284,36 316,20 352,12 C318,44 298,66 284,96 Z" fill="#EFE9DF"/>
+        <path d="M148,74 L112,34 L86,42 L128,84 Z" fill="#EFE9DF"/>
+        <path d="M200,58 L252,74 L278,100 L290,140 L330,132 L296,166 L298,204 L334,224 L294,244 L268,282 L282,312 L250,304 L222,326 L200,338 L178,326 L150,304 L118,312 L132,282 L106,244 L66,224 L102,204 L104,166 L70,132 L110,140 L122,100 L148,74 Z" fill="#EFE9DF"/>
+        <path d="M120,178 Q150,150 180,166" stroke="#FF4E1B" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M280,178 Q250,150 220,166" stroke="#FF4E1B" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <!-- fauces abiertas -->
+        <path d="M118,214 L200,192 L282,214 L268,286 L200,310 L132,286 Z" fill="#0B0A09"/>
+        <g fill="#EFE9DF">
+          <path d="M142,222 L154,248 L168,224 Z"/><path d="M176,228 L188,254 L200,230 Z"/>
+          <path d="M208,228 L220,252 L232,226 Z"/><path d="M240,222 L250,244 L260,220 Z"/>
+          <path d="M150,278 L162,254 L174,276 Z"/><path d="M186,282 L198,258 L210,280 Z"/>
+          <path d="M222,276 L234,254 L244,272 Z"/>
+        </g>
         <!-- kebab entrando gigante -->
-        <g transform="rotate(-30 200 280)">
-          <path d="M200,280 L268,252 L268,308 Z" fill="#EFE9DF" stroke="#0B0A09" stroke-width="5"/>
-          <line x1="218" y1="272" x2="258" y2="260" stroke="#0B0A09" stroke-width="3"/>
-          <line x1="220" y1="290" x2="260" y2="296" stroke="#0B0A09" stroke-width="3"/>
-          <circle cx="280" cy="280" r="16" fill="#FF4E1B"/>
+        <g transform="rotate(-32 200 250)">
+          <path d="M200,250 L262,224 L262,276 Z" fill="#EFE9DF" stroke="#0B0A09" stroke-width="5"/>
+          <line x1="218" y1="243" x2="252" y2="232" stroke="#0B0A09" stroke-width="3"/>
+          <line x1="220" y1="258" x2="252" y2="264" stroke="#0B0A09" stroke-width="3"/>
+          <circle cx="276" cy="250" r="15" fill="#FF4E1B"/>
         </g>
       </g>
       <!-- texto -->
