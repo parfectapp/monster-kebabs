@@ -11,14 +11,14 @@
 <style>
   .fotos{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
   .foto{background:#E9E2D2;padding:14px 14px 0;position:relative}
-  .foto svg{width:100%;display:block}
+  .foto img{width:100%;display:block}
   .foto .fcap{
     font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;
     color:rgba(11,10,9,.6);text-transform:uppercase;padding:12px 4px 14px;line-height:1.7;
   }
   .foto .fcap em{color:#B33512;font-style:normal}
-  .foto .fnum{position:absolute;top:20px;right:22px;font-family:'IBM Plex Mono',monospace;font-size:10px;
-    color:rgba(239,233,223,.85);letter-spacing:.16em;z-index:2}
+  .foto .fnum{position:absolute;top:22px;right:24px;font-family:'IBM Plex Mono',monospace;font-size:10px;
+    color:rgba(239,233,223,.9);letter-spacing:.16em;z-index:2;background:rgba(11,10,9,.55);padding:4px 8px}
   .regla{list-style:none}
   .regla li{display:grid;grid-template-columns:60px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
   .regla li:first-child{border-top:1px solid var(--line)}
@@ -41,369 +41,41 @@
 <section class="page-head">
   <div class="label">MODO C — LA CRIATURA · FOTO RETRO</div>
   <h1 class="display">El archivo</h1>
-  <p class="sub">La criatura como si existiera de verdad: puppet de efectos prácticos, película análoga,
-  situaciones mundanas. El logo es tinta plana — pero el FEED es esto: KEBO de pelo real, ojos de vidrio,
-  sentado en un sillón de Morelia a las 3 AM. Terror doméstico con hambre.</p>
+  <p class="sub">La criatura existe: puppet de efectos prácticos, película análoga, situaciones mundanas.
+  El logo es tinta plana — pero el FEED es esto: KEBO de pelo real, ojos de vidrio, sentado en un sillón
+  de Morelia a las 3 AM. Terror doméstico con hambre.</p>
 </section>
 
 <section class="rv" style="padding-top:0">
   <div class="fotos">
 
-    <!-- F-01 · LA SALA -->
     <div class="foto">
       <span class="fnum">ARCHIVO 001</span>
-      <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="furA" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.03 0.11" numOctaves="4" seed="7" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="20"/>
-          </filter>
-          <filter id="grainA"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter>
-          <radialGradient id="vigA" cx="50%" cy="46%" r="72%">
-            <stop offset="58%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity=".42"/>
-          </radialGradient>
-          <radialGradient id="irisA" cx="42%" cy="38%" r="65%">
-            <stop offset="0%" stop-color="#FF8A4D"/><stop offset="55%" stop-color="#E04A16"/><stop offset="100%" stop-color="#6E2008"/>
-          </radialGradient>
-        </defs>
-        <!-- pared -->
-        <rect width="480" height="600" fill="#CFC1A6"/>
-        <rect width="480" height="14" y="360" fill="#B5A688"/>
-        <!-- cuadro montaña -->
-        <rect x="36" y="48" width="170" height="120" fill="#8A6F4E"/>
-        <rect x="46" y="58" width="150" height="100" fill="#9FB3B5"/>
-        <path d="M46,158 L96,96 L126,128 L156,84 L196,158 Z" fill="#5E7778"/>
-        <path d="M96,96 L110,112 L96,118 L86,108 Z" fill="#E8E2D2"/>
-        <!-- lámpara -->
-        <path d="M366,120 L446,120 L430,64 L382,64 Z" fill="#C69A5B"/>
-        <rect x="402" y="120" width="8" height="130" fill="#7A5A38"/>
-        <ellipse cx="406" cy="160" rx="66" ry="80" fill="#F2D8A8" opacity=".14"/>
-        <!-- sofá -->
-        <rect x="20" y="330" width="440" height="150" rx="18" fill="#4E6B57"/>
-        <rect x="20" y="300" width="60" height="180" rx="22" fill="#5A7A64"/>
-        <rect x="400" y="300" width="60" height="180" rx="22" fill="#5A7A64"/>
-        <rect x="52" y="452" width="376" height="60" rx="10" fill="#456050"/>
-        <line x1="240" y1="340" x2="240" y2="450" stroke="#3C5546" stroke-width="3" opacity=".6"/>
-        <!-- alfombra -->
-        <rect y="512" width="480" height="88" fill="#A08A64"/>
-        <!-- CABLE del control -->
-        <path d="M240,470 C240,520 190,540 130,560 C90,572 60,580 30,578" stroke="#26201A" stroke-width="4" fill="none"/>
-        <!-- KEBO puppet -->
-        <g>
-          <!-- piernas -->
-          <path d="M150,430 C142,480 140,520 146,556 L196,556 C196,516 198,478 204,444 Z" fill="#2C241D" filter="url(#furA)"/>
-          <path d="M330,430 C338,480 340,520 334,556 L284,556 C284,516 282,478 276,444 Z" fill="#2C241D" filter="url(#furA)"/>
-          <!-- pies con garras -->
-          <ellipse cx="168" cy="560" rx="40" ry="16" fill="#26201A"/>
-          <ellipse cx="312" cy="560" rx="40" ry="16" fill="#26201A"/>
-          <g fill="#D9CDB4">
-            <path d="M136,552 L124,566 L142,564 Z"/><path d="M156,556 L148,572 L166,568 Z"/><path d="M180,558 L176,574 L192,568 Z"/>
-            <path d="M300,558 L292,574 L308,568 Z"/><path d="M324,556 L320,572 L336,566 Z"/><path d="M344,552 L340,566 L356,562 Z"/>
-          </g>
-          <!-- torso -->
-          <path d="M148,300 C140,368 146,420 168,448 C196,470 284,470 312,448 C334,420 340,368 332,300 C320,258 160,258 148,300 Z" fill="#2E2620" filter="url(#furA)"/>
-          <!-- panza -->
-          <ellipse cx="240" cy="392" rx="72" ry="58" fill="#3B3128" filter="url(#furA)"/>
-          <!-- brazos -->
-          <path d="M152,308 C118,330 102,364 100,404 C112,420 132,424 148,416 C152,382 162,352 180,330 Z" fill="#2A231C" filter="url(#furA)"/>
-          <path d="M328,308 C362,330 378,364 380,404 C368,420 348,424 332,416 C328,382 318,352 300,330 Z" fill="#2A231C" filter="url(#furA)"/>
-          <!-- manos + control -->
-          <rect x="196" y="412" width="88" height="40" rx="8" fill="#DDD5C4"/>
-          <circle cx="216" cy="432" r="7" fill="#26201A"/><circle cx="236" cy="432" r="7" fill="#B33512"/>
-          <rect x="254" y="424" width="18" height="16" rx="3" fill="#26201A"/>
-          <g fill="#26201A">
-            <path d="M188,412 L172,398 L196,402 Z"/><path d="M196,448 L178,456 L200,458 Z"/>
-            <path d="M292,412 L308,398 L284,402 Z"/><path d="M284,448 L302,456 L280,458 Z"/>
-          </g>
-          <!-- cabeza -->
-          <path d="M156,170 C150,238 168,282 240,286 C312,282 330,238 324,170 C312,116 168,116 156,170 Z" fill="#2E2620" filter="url(#furA)"/>
-          <!-- pelo punk -->
-          <g fill="#2A231C">
-            <path d="M186,124 L176,88 L204,112 Z"/><path d="M216,114 L216,76 L240,108 Z"/>
-            <path d="M250,110 L262,74 L276,110 Z"/><path d="M286,120 L306,92 L302,126 Z"/>
-          </g>
-          <!-- cuernos: der largo, izq ROTO -->
-          <path d="M306,140 C330,112 352,98 380,92 C358,116 344,134 336,158 Z" fill="#C7B492"/>
-          <path d="M174,138 L152,112 L134,120 L158,148 Z" fill="#C7B492"/>
-          <!-- ojos de vidrio ember -->
-          <ellipse cx="204" cy="196" rx="30" ry="32" fill="#F1EADB"/>
-          <ellipse cx="276" cy="196" rx="30" ry="32" fill="#F1EADB"/>
-          <circle cx="206" cy="200" r="17" fill="url(#irisA)"/>
-          <circle cx="274" cy="200" r="17" fill="url(#irisA)"/>
-          <circle cx="207" cy="201" r="7" fill="#140E08"/>
-          <circle cx="273" cy="201" r="7" fill="#140E08"/>
-          <circle cx="200" cy="192" r="4" fill="#FFF" opacity=".9"/>
-          <circle cx="268" cy="192" r="4" fill="#FFF" opacity=".9"/>
-          <!-- párpados pesados (enojo suave) -->
-          <path d="M172,178 Q204,158 236,176 L236,164 Q204,146 172,166 Z" fill="#2E2620" filter="url(#furA)"/>
-          <path d="M308,178 Q276,158 244,176 L244,164 Q276,146 308,166 Z" fill="#2E2620" filter="url(#furA)"/>
-          <!-- hocico + sonrisa 13 -->
-          <ellipse cx="240" cy="232" rx="14" ry="8" fill="#1C1611"/>
-          <path d="M178,246 Q240,286 302,246 Q296,276 240,282 Q184,276 178,246 Z" fill="#180F0A"/>
-          <g fill="#E4D9C0">
-            <path d="M186,250 L194,266 L202,252 Z"/><path d="M206,256 L214,272 L222,258 Z"/>
-            <path d="M228,260 L236,276 L244,261 Z"/><path d="M250,258 L258,273 L266,257 Z"/>
-            <path d="M272,252 L280,266 L288,250 Z"/>
-          </g>
-        </g>
-        <!-- película -->
-        <rect width="480" height="600" fill="#C9A06A" opacity=".07"/>
-        <rect width="480" height="600" filter="url(#grainA)" opacity=".13"/>
-        <rect width="480" height="600" fill="url(#vigA)"/>
-      </svg>
+      <img src="fotos/archivo-01-sala.jpg" alt="KEBO en la sala" loading="lazy">
       <div class="fcap">F-01 · <em>LA SALA</em> — MARTES 9:47 PM. PERDIÓ TRES VIDAS ESPERANDO SU PEDIDO. FORMATO: FEED / PORTADA.</div>
     </div>
 
-    <!-- F-02 · EL ANTOJO -->
     <div class="foto">
       <span class="fnum">ARCHIVO 002</span>
-      <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="furB" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.035 0.1" numOctaves="4" seed="13" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="22"/>
-          </filter>
-          <filter id="grainB"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="3"/><feColorMatrix type="saturate" values="0"/></filter>
-          <radialGradient id="vigB" cx="50%" cy="45%" r="72%">
-            <stop offset="58%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity=".45"/>
-          </radialGradient>
-          <radialGradient id="irisB" cx="42%" cy="38%" r="65%">
-            <stop offset="0%" stop-color="#FF8A4D"/><stop offset="55%" stop-color="#E04A16"/><stop offset="100%" stop-color="#6E2008"/>
-          </radialGradient>
-        </defs>
-        <!-- cocina de fondo -->
-        <rect width="480" height="600" fill="#5E5548"/>
-        <rect x="0" y="60" width="480" height="10" fill="#463E33"/>
-        <rect x="0" y="180" width="480" height="10" fill="#463E33"/>
-        <!-- repisas con cajas -->
-        <g>
-          <rect x="24" y="14" width="70" height="46" fill="#8E3B2C"/><rect x="104" y="20" width="56" height="40" fill="#3E5C5E"/>
-          <rect x="170" y="10" width="64" height="50" fill="#8E3B2C"/><rect x="244" y="22" width="52" height="38" fill="#B08A4A"/>
-          <rect x="306" y="12" width="70" height="48" fill="#3E5C5E"/><rect x="386" y="20" width="64" height="40" fill="#8E3B2C"/>
-          <rect x="30" y="132" width="60" height="48" fill="#3E5C5E"/><rect x="100" y="140" width="66" height="40" fill="#B08A4A"/>
-          <rect x="330" y="136" width="58" height="44" fill="#8E3B2C"/><rect x="398" y="130" width="52" height="50" fill="#3E5C5E"/>
-        </g>
-        <!-- KEBO asomado sobre la barra -->
-        <g>
-          <!-- brazos abiertos sobre la barra -->
-          <path d="M60,428 C52,380 70,330 108,300 L150,336 C122,364 112,396 116,432 Z" fill="#2A231C" filter="url(#furB)"/>
-          <path d="M420,428 C428,380 410,330 372,300 L330,336 C358,364 368,396 364,432 Z" fill="#2A231C" filter="url(#furB)"/>
-          <!-- garras sobre la barra -->
-          <g fill="#D9CDB4">
-            <path d="M74,432 L60,452 L84,448 Z"/><path d="M98,436 L92,458 L112,450 Z"/><path d="M124,436 L124,458 L142,448 Z"/>
-            <path d="M406,432 L420,452 L396,448 Z"/><path d="M382,436 L388,458 L368,450 Z"/><path d="M356,436 L356,458 L338,448 Z"/>
-          </g>
-          <!-- torso -->
-          <path d="M140,320 C136,376 150,420 176,444 L304,444 C330,420 344,376 340,320 C324,272 156,272 140,320 Z" fill="#2E2620" filter="url(#furB)"/>
-          <!-- cabeza grande -->
-          <path d="M150,168 C142,244 164,296 240,300 C316,296 338,244 330,168 C316,108 164,108 150,168 Z" fill="#2E2620" filter="url(#furB)"/>
-          <g fill="#2A231C">
-            <path d="M180,120 L168,82 L200,108 Z"/><path d="M214,110 L214,70 L240,104 Z"/>
-            <path d="M252,106 L266,68 L280,106 Z"/><path d="M290,116 L312,86 L308,122 Z"/>
-          </g>
-          <path d="M310,138 C334,110 356,96 384,90 C362,114 348,132 340,156 Z" fill="#C7B492"/>
-          <path d="M172,136 L150,110 L132,118 L156,146 Z" fill="#C7B492"/>
-          <!-- ojos desiguales (locura) -->
-          <ellipse cx="198" cy="186" rx="34" ry="36" fill="#F1EADB"/>
-          <ellipse cx="282" cy="192" rx="26" ry="28" fill="#F1EADB"/>
-          <circle cx="202" cy="192" r="19" fill="url(#irisB)"/>
-          <circle cx="280" cy="196" r="14" fill="url(#irisB)"/>
-          <circle cx="203" cy="193" r="8" fill="#140E08"/>
-          <circle cx="279" cy="197" r="6" fill="#140E08"/>
-          <circle cx="195" cy="184" r="4.5" fill="#FFF" opacity=".9"/>
-          <circle cx="274" cy="189" r="3.5" fill="#FFF" opacity=".9"/>
-          <!-- FAUCES enormes abiertas -->
-          <path d="M162,238 Q240,214 318,238 Q316,304 240,318 Q164,304 162,238 Z" fill="#1A0F08"/>
-          <ellipse cx="240" cy="280" rx="52" ry="24" fill="#8E3B2C"/>
-          <g fill="#E4D9C0">
-            <path d="M172,240 L184,268 L198,242 Z"/><path d="M204,236 L216,266 L230,238 Z"/>
-            <path d="M238,234 L250,264 L262,236 Z"/><path d="M270,238 L282,266 L294,240 Z"/>
-            <path d="M300,244 L308,266 L316,244 Z"/>
-            <path d="M182,296 L192,274 L204,294 Z"/><path d="M212,302 L222,278 L234,300 Z"/>
-            <path d="M244,302 L254,278 L266,298 Z"/><path d="M276,296 L286,272 L296,290 Z"/>
-          </g>
-        </g>
-        <!-- barra con kebabs -->
-        <rect x="0" y="440" width="480" height="24" fill="#B9B0A0"/>
-        <rect x="0" y="464" width="480" height="136" fill="#8C8474"/>
-        <!-- papel encerado + kebabs -->
-        <g>
-          <rect x="36" y="470" width="130" height="86" rx="4" fill="#E4D9C0" transform="rotate(-5 100 512)"/>
-          <path d="M56,540 L96,486 L142,540 Z" fill="#D9C9A6" transform="rotate(-5 100 512)"/>
-          <ellipse cx="100" cy="492" rx="30" ry="12" fill="#8E3B2C" transform="rotate(-5 100 512)"/>
-          <rect x="184" y="478" width="130" height="84" rx="4" fill="#E4D9C0" transform="rotate(3 250 520)"/>
-          <path d="M204,548 L246,492 L292,548 Z" fill="#D9C9A6" transform="rotate(3 250 520)"/>
-          <ellipse cx="248" cy="500" rx="32" ry="13" fill="#8E3B2C" transform="rotate(3 250 520)"/>
-          <rect x="330" y="472" width="126" height="84" rx="4" fill="#E4D9C0" transform="rotate(-3 392 514)"/>
-          <path d="M348,542 L390,488 L436,542 Z" fill="#D9C9A6" transform="rotate(-3 392 514)"/>
-          <ellipse cx="392" cy="496" rx="30" ry="12" fill="#8E3B2C" transform="rotate(-3 392 514)"/>
-          <!-- salsa regada -->
-          <ellipse cx="168" cy="560" rx="26" ry="8" fill="#B33512"/>
-          <ellipse cx="316" cy="572" rx="34" ry="9" fill="#B33512"/>
-          <ellipse cx="242" cy="584" rx="14" ry="5" fill="#B33512"/>
-        </g>
-        <!-- película -->
-        <rect width="480" height="600" fill="#C9A06A" opacity=".06"/>
-        <rect width="480" height="600" filter="url(#grainB)" opacity=".14"/>
-        <rect width="480" height="600" fill="url(#vigB)"/>
-      </svg>
+      <img src="fotos/archivo-02-antojo.jpg" alt="KEBO en la cocina" loading="lazy">
       <div class="fcap">F-02 · <em>EL ANTOJO</em> — ENTRÓ POR UNO. VAN TRES. FORMATO: REEL DE LANZAMIENTO / MENÚ.</div>
     </div>
 
-    <!-- F-03 · EL RETRATO -->
     <div class="foto">
       <span class="fnum">ARCHIVO 003</span>
-      <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="furC" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.028 0.09" numOctaves="4" seed="21" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="24"/>
-          </filter>
-          <filter id="grainC"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="9"/><feColorMatrix type="saturate" values="0"/></filter>
-          <radialGradient id="vigC" cx="50%" cy="44%" r="74%">
-            <stop offset="60%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity=".34"/>
-          </radialGradient>
-          <radialGradient id="irisC" cx="42%" cy="38%" r="65%">
-            <stop offset="0%" stop-color="#FF8A4D"/><stop offset="55%" stop-color="#E04A16"/><stop offset="100%" stop-color="#6E2008"/>
-          </radialGradient>
-          <radialGradient id="bgC" cx="50%" cy="40%" r="80%">
-            <stop offset="0%" stop-color="#CE8248"/><stop offset="100%" stop-color="#B06A34"/>
-          </radialGradient>
-        </defs>
-        <!-- estudio naranja -->
-        <rect width="480" height="600" fill="url(#bgC)"/>
-        <ellipse cx="240" cy="330" rx="190" ry="230" fill="#96551F" opacity=".35"/>
-        <!-- camiseta -->
-        <path d="M96,600 L110,470 C150,432 330,432 370,470 L384,600 Z" fill="#E8E2D2"/>
-        <path d="M96,600 L110,470 L74,502 L86,600 Z" fill="#DCD5C2"/>
-        <path d="M384,600 L370,470 L406,502 L394,600 Z" fill="#DCD5C2"/>
-        <text x="240" y="560" font-family="Anton,sans-serif" font-size="44" fill="#161310" text-anchor="middle" letter-spacing="2">KEBO.</text>
-        <!-- cuello peludo -->
-        <path d="M180,470 C180,430 300,430 300,470 C300,492 180,492 180,470 Z" fill="#2A231C" filter="url(#furC)"/>
-        <!-- cabeza retrato -->
-        <path d="M138,220 C128,320 160,388 240,394 C320,388 352,320 342,220 C328,140 152,140 138,220 Z" fill="#2E2620" filter="url(#furC)"/>
-        <!-- melena/barba -->
-        <path d="M148,280 C132,346 160,412 240,420 C320,412 348,346 332,280 C330,352 300,392 240,396 C180,392 150,352 148,280 Z" fill="#26201A" filter="url(#furC)"/>
-        <g fill="#2A231C">
-          <path d="M170,158 L156,112 L192,142 Z"/><path d="M206,146 L206,100 L234,138 Z"/>
-          <path d="M246,136 L262,96 L278,138 Z"/><path d="M288,150 L314,116 L310,156 Z"/>
-        </g>
-        <!-- cuernos -->
-        <path d="M316,172 C342,140 366,124 396,118 C372,144 358,164 348,190 Z" fill="#C7B492"/>
-        <path d="M164,170 L138,140 L118,148 L146,182 Z" fill="#C7B492"/>
-        <!-- cejas de pelo -->
-        <path d="M162,222 Q204,200 246,220 L246,204 Q204,184 162,206 Z" fill="#3B2F24" filter="url(#furC)"/>
-        <path d="M318,222 Q276,200 234,220 L234,204 Q276,184 318,206 Z" fill="#3B2F24" filter="url(#furC)"/>
-        <!-- ojos de vidrio ENORMES mirando a cámara -->
-        <ellipse cx="200" cy="252" rx="36" ry="38" fill="#F3EDE0"/>
-        <ellipse cx="280" cy="252" rx="36" ry="38" fill="#F3EDE0"/>
-        <circle cx="240" cy="256" r="0" fill="none"/>
-        <circle cx="202" cy="258" r="20" fill="url(#irisC)"/>
-        <circle cx="278" cy="258" r="20" fill="url(#irisC)"/>
-        <circle cx="202" cy="258" r="9" fill="#140E08"/>
-        <circle cx="278" cy="258" r="9" fill="#140E08"/>
-        <circle cx="194" cy="248" r="5" fill="#FFF" opacity=".92"/>
-        <circle cx="270" cy="248" r="5" fill="#FFF" opacity=".92"/>
-        <!-- nariz -->
-        <ellipse cx="240" cy="300" rx="16" ry="10" fill="#1C1611"/>
-        <!-- sonrisa entre la barba -->
-        <path d="M188,330 Q240,362 292,330 Q288,358 240,364 Q192,358 188,330 Z" fill="#180F0A"/>
-        <g fill="#E4D9C0">
-          <path d="M196,334 L204,350 L212,336 Z"/><path d="M218,340 L226,356 L234,341 Z"/>
-          <path d="M240,342 L248,358 L256,342 Z"/><path d="M262,338 L270,352 L278,336 Z"/>
-        </g>
-        <!-- película -->
-        <rect width="480" height="600" fill="#C9A06A" opacity=".05"/>
-        <rect width="480" height="600" filter="url(#grainC)" opacity=".13"/>
-        <rect width="480" height="600" fill="url(#vigC)"/>
-      </svg>
+      <img src="fotos/archivo-03-retrato.jpg" alt="Retrato de KEBO" loading="lazy">
       <div class="fcap">F-03 · <em>EL RETRATO</em> — FOTO ESCOLAR DE UN KAIJU. FORMATO: PERFIL / CARTEL / MEME.</div>
     </div>
 
-    <!-- F-04 · 3 AM -->
     <div class="foto">
       <span class="fnum">ARCHIVO 004</span>
-      <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="furD" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.03 0.1" numOctaves="4" seed="31" result="n"/>
-            <feDisplacementMap in="SourceGraphic" in2="n" scale="20"/>
-          </filter>
-          <filter id="grainD"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="17"/><feColorMatrix type="saturate" values="0"/></filter>
-          <radialGradient id="vigD" cx="50%" cy="46%" r="72%">
-            <stop offset="52%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity=".55"/>
-          </radialGradient>
-          <radialGradient id="irisD" cx="42%" cy="38%" r="65%">
-            <stop offset="0%" stop-color="#FF8A4D"/><stop offset="55%" stop-color="#E04A16"/><stop offset="100%" stop-color="#6E2008"/>
-          </radialGradient>
-        </defs>
-        <!-- cuarto oscuro -->
-        <rect width="480" height="600" fill="#171310"/>
-        <!-- luz de TV desde la izquierda -->
-        <path d="M0,120 L480,260 L480,420 L0,560 Z" fill="#9FB3B5" opacity=".1"/>
-        <path d="M0,180 L480,300 L480,380 L0,480 Z" fill="#C8D4D2" opacity=".08"/>
-        <!-- reloj -->
-        <text x="404" y="70" font-family="IBM Plex Mono,monospace" font-size="20" fill="#B33512" letter-spacing="3">3:07</text>
-        <!-- sofá en penumbra -->
-        <rect x="16" y="330" width="448" height="160" rx="18" fill="#2E3A33"/>
-        <rect x="16" y="300" width="56" height="190" rx="20" fill="#38473E"/>
-        <rect x="408" y="300" width="56" height="190" rx="20" fill="#38473E"/>
-        <rect y="480" width="480" height="120" fill="#241E18"/>
-        <!-- KEBO derretido en el sofá -->
-        <g>
-          <!-- piernas estiradas -->
-          <path d="M170,440 C150,490 140,530 140,566 L196,566 C200,522 206,486 216,452 Z" fill="#26201A" filter="url(#furD)"/>
-          <path d="M310,440 C330,490 340,530 340,566 L284,566 C280,522 274,486 264,452 Z" fill="#26201A" filter="url(#furD)"/>
-          <g fill="#C9BCA0" opacity=".8">
-            <path d="M132,562 L120,576 L140,574 Z"/><path d="M156,566 L150,582 L168,576 Z"/>
-            <path d="M324,566 L330,582 L312,576 Z"/><path d="M348,562 L360,576 L340,574 Z"/>
-          </g>
-          <!-- cuerpo resbalado -->
-          <path d="M146,318 C136,388 148,436 176,458 L304,458 C332,436 344,388 334,318 C318,272 162,272 146,318 Z" fill="#28211B" filter="url(#furD)"/>
-          <!-- caja de kebab en la panza -->
-          <rect x="186" y="380" width="108" height="52" rx="6" fill="#151210"/>
-          <rect x="186" y="380" width="108" height="14" fill="#0E0C0A"/>
-          <path d="M226,398 L240,412 L254,398 L240,386 Z" fill="#B33512"/>
-          <!-- garra dentro de la caja -->
-          <path d="M296,392 C316,378 330,376 348,380 C334,390 322,398 312,410 Z" fill="#26201A" filter="url(#furD)"/>
-          <!-- cabeza caída de lado -->
-          <g transform="rotate(9 240 210)">
-            <path d="M162,168 C154,238 174,284 240,288 C306,284 326,238 318,168 C306,114 174,114 162,168 Z" fill="#28211B" filter="url(#furD)"/>
-            <g fill="#241E18">
-              <path d="M190,122 L180,88 L208,110 Z"/><path d="M222,112 L222,76 L246,106 Z"/><path d="M256,108 L268,74 L282,110 Z"/>
-            </g>
-            <path d="M300,140 C322,114 342,100 368,94 C348,118 334,134 326,156 Z" fill="#A69275"/>
-            <path d="M178,138 L158,114 L142,122 L164,148 Z" fill="#A69275"/>
-            <!-- ojos a media asta -->
-            <ellipse cx="206" cy="196" rx="27" ry="28" fill="#EDE5D2"/>
-            <ellipse cx="274" cy="196" rx="27" ry="28" fill="#EDE5D2"/>
-            <circle cx="208" cy="200" r="15" fill="url(#irisD)"/>
-            <circle cx="272" cy="200" r="15" fill="url(#irisD)"/>
-            <circle cx="208" cy="200" r="6.5" fill="#140E08"/>
-            <circle cx="272" cy="200" r="6.5" fill="#140E08"/>
-            <!-- párpados a la mitad -->
-            <path d="M177,168 L235,168 L235,190 Q206,178 177,190 Z" fill="#28211B" filter="url(#furD)"/>
-            <path d="M245,168 L303,168 L303,190 Q274,178 245,190 Z" fill="#28211B" filter="url(#furD)"/>
-            <!-- sonrisa satisfecha -->
-            <path d="M190,240 Q240,268 290,240" stroke="#0E0A07" stroke-width="8" fill="none" stroke-linecap="round"/>
-            <path d="M226,252 L236,268 L246,251 Z" fill="#E4D9C0"/>
-          </g>
-        </g>
-        <!-- migajas -->
-        <g fill="#C9BCA0" opacity=".7">
-          <circle cx="150" cy="470" r="3"/><circle cx="330" cy="466" r="2.5"/><circle cx="240" cy="472" r="2"/>
-          <circle cx="196" cy="500" r="2.5"/><circle cx="290" cy="504" r="3"/>
-        </g>
-        <!-- película -->
-        <rect width="480" height="600" fill="#3E5C5E" opacity=".05"/>
-        <rect width="480" height="600" filter="url(#grainD)" opacity=".16"/>
-        <rect width="480" height="600" fill="url(#vigD)"/>
-      </svg>
+      <img src="fotos/archivo-04-3am.jpg" alt="KEBO a las 3:07 AM" loading="lazy">
       <div class="fcap">F-04 · <em>3:07 AM</em> — MISIÓN CUMPLIDA. FORMATO: STORY NOCTURNA / MIDNIGHT RUN.</div>
     </div>
   </div>
   <p class="note">EL ARCHIVO ES LA VOZ DEL FEED: <em>TERROR DOMÉSTICO CON HAMBRE</em> — LA CRIATURA EXISTE,
-  VIVE EN MORELIA Y PIDE COMO TÚ. EL LOGO SIGUE SIENDO TINTA PLANA; ESTO ES LA FOTOGRAFÍA.</p>
+  VIVE EN MORELIA Y PIDE COMO TÚ. IDENTIDAD INTACTA EN LAS 4: CUERNO IZQUIERDO ROTO, OJOS DE VIDRIO
+  DESIGUALES, DIENTES CHUECOS, GARRAS HUESO.</p>
 </section>
 
 <!-- ══════ REGLAS DEL MODO C ══════ -->
@@ -411,10 +83,10 @@
   <div class="label">REGLAS DEL MODO C</div>
   <ul class="regla">
     <li><span class="idx">C-01</span><p><b>Puppet, no CGI.</b> La criatura siempre se ve de utilería: pelo real, ojos de vidrio, costuras honestas. Nunca render 3D pulido — el encanto ES la imperfección análoga.</p></li>
-    <li><span class="idx">C-02</span><p><b>Película, no filtro.</b> Grano, viñeta, colores lavados 70s-80s. Luz de lámpara y de TV, nunca luz de estudio perfecta.</p></li>
+    <li><span class="idx">C-02</span><p><b>Película, no filtro.</b> Grano, viñeta, colores lavados 70s-80s. Luz de lámpara y de TV, nunca luz de estudio perfecta (salvo el retrato, que ES foto de estudio setentera).</p></li>
     <li><span class="idx">C-03</span><p><b>Situaciones mundanas.</b> El monstruo nunca ataca: espera su pedido, pierde en el videojuego, se queda dormido con la caja en la panza. La comedia es que vive como tú.</p></li>
-    <li><span class="idx">C-04</span><p><b>Identidad intacta:</b> cuerno derecho largo + izquierdo ROTO, ojos ember, sonrisa dentada, garras hueso. Cambia el medio, nunca el personaje.</p></li>
-    <li><span class="idx">C-05</span><p><b>Producción real:</b> estas escenas son los blueprints. Las fotos finales se generan con IA de imagen (Nano Banana / Midjourney) usando estas composiciones como referencia + el prompt del archivo PROMPTS-MODO-C.md.</p></li>
+    <li><span class="idx">C-04</span><p><b>Identidad intacta:</b> cuerno derecho largo + izquierdo ROTO, ojos ámbar de vidrio (el izquierdo más grande), dientes chuecos, garras hueso. Cambia el medio, nunca el personaje.</p></li>
+    <li><span class="idx">C-05</span><p><b>Producción:</b> generadas con Nano Banana Pro usando el bloque de identidad de PROMPTS-MODO-C.md — ahí está el banco de 6 escenas futuras (el gym, la combi, el acueducto, la lluvia, el fut, la navideña) listas para la siguiente ronda.</p></li>
   </ul>
 </section>
 
