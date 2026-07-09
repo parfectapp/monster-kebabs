@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOTOS — MONSTER KEBABS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand.css">
+<style>
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .shot{position:relative;background:var(--tinta2);border:1px solid var(--line)}
+  .shot img{width:100%;display:block}
+  .shot .sc{padding:14px 16px;border-top:1px solid var(--line)}
+  .shot .sn{font-family:'Anton',sans-serif;font-size:18px;text-transform:uppercase}
+  .shot .su{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--humo);text-transform:uppercase;margin-top:5px;line-height:1.7}
+  .shot .su em{color:var(--ember);font-style:normal}
+  .hero-shot{grid-column:span 2;grid-row:span 2}
+  @media(max-width:820px){.shots{grid-template-columns:1fr}.hero-shot{grid-column:auto;grid-row:auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div><b>MONSTER KEBABS</b><span class="dot"> ●</span> FOTOGRAFÍA</div>
+  <nav class="nav">
+    <a href="index.html">MARCA</a><a href="feed.html">FEED</a><a href="empaques.html">EMPAQUES</a><a href="landing.html">LANDING</a>
+  </nav>
+</div>
+
+<section class="page-head">
+  <div class="label">SET 001 — PRODUCTO + EMPAQUE</div>
+  <h1 class="display">Las fotos</h1>
+  <p class="sub">El menú y los empaques en fotografía real de campaña — luz dura sobre tinta, vapor, ember.
+  Nivel Shake Shack, universo monstruo. Para las apps de delivery, el feed y los ads.</p>
+</section>
+
+<section class="rv" style="padding-top:0">
+  <div class="shots">
+    <div class="shot hero-shot">
+      <img src="fotos/kebo-clasico.jpg" alt="Kebo Clásico">
+      <div class="sc"><div class="sn">Kebo Clásico — $139</div><div class="su">EL HERO SHOT · <em>PRIMER ÍTEM EN LAS 3 APPS</em> · PORTADA DE TIENDA</div></div>
+    </div>
+    <div class="shot">
+      <img src="fotos/la-bestia.jpg" alt="La Bestia">
+      <div class="sc"><div class="sn">La Bestia — $159</div><div class="su">MENÚ EN APPS · POST T11 DEL FEED</div></div>
+    </div>
+    <div class="shot">
+      <img src="fotos/el-alpha.jpg" alt="El Alpha">
+      <div class="sc"><div class="sn">El Alpha — $199</div><div class="su">EL JEFE FINAL · ADS DE META (EL CHEESE PULL DETIENE EL SCROLL)</div></div>
+    </div>
+    <div class="shot">
+      <img src="fotos/monster-bites.jpg" alt="Monster Bites">
+      <div class="sc"><div class="sn">Monster Bites</div><div class="su">PRODUCTO ESTRELLA #2 · MENÚ + POST T08</div></div>
+    </div>
+    <div class="shot">
+      <img src="fotos/limonada-negra.jpg" alt="Limonada Negra">
+      <div class="sc"><div class="sn">Limonada Negra — $55</div><div class="su">LA BEBIDA-FOTO · POST T15 · STORIES</div></div>
+    </div>
+    <div class="shot">
+      <img src="fotos/caja.jpg" alt="La caja">
+      <div class="sc"><div class="sn">La caja</div><div class="su">EL LOCAL ES LA CAJA · UNBOXING / REELS · <em>SPEC EN EMPAQUES.HTML</em></div></div>
+    </div>
+    <div class="shot">
+      <img src="fotos/bolsa.jpg" alt="La bolsa">
+      <div class="sc"><div class="sn">La bolsa + sello 23:41</div><div class="su">LA FIRMA DE LA MARCA · FOTO DE "TU PEDIDO VA EN CAMINO"</div></div>
+    </div>
+    <div class="shot">
+      <img src="fotos/combo-manada.jpg" alt="La Manada">
+      <div class="sc"><div class="sn">La Manada — $749</div><div class="su">FLAT-LAY FAMILIAR · DÍA DE PARTIDO · ADS DE FIN DE SEMANA</div></div>
+    </div>
+    <div class="shot">
+      <img src="fotos/salsa-kebo.jpg" alt="Salsa Kebo">
+      <div class="sc"><div class="sn">Salsa Kebo</div><div class="su">LA SALSA ES LA MARCA · MACRO PARA REELS · POST T27</div></div>
+    </div>
+  </div>
+  <p class="note">GENERADAS CON NANO BANANA PRO SOBRE LOS SPECS DE EMPAQUES.HTML ·
+  <em>SE REEMPLAZAN POR FOTOS DEL PRODUCTO REAL EN LA F1 DEL PLAN (SESIÓN DE FOTOS CON PRODUCTO ESTANDARIZADO)</em> —
+  MISMO ENCUADRE, MISMA LUZ: ESTAS SON EL BRIEF DEL FOTÓGRAFO.</p>
+</section>
+
+<footer class="rv">
+  <div class="big display">Se ve real<br>porque<span> ya casi lo es.</span></div>
+  <div class="foot-meta">
+    <span>MONSTER KEBABS® — SET 001</span>
+    <span>9 PIEZAS · TINTA + VAPOR + EMBER</span>
+    <span>MORELIA — 2026</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
