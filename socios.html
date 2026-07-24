@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MONSTER KEBABS — Resumen para socios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand.css">
+<style>
+  .fecha{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--ember);text-transform:uppercase}
+  .idea{font-size:clamp(19px,2.6vw,26px);line-height:1.5;color:var(--humo);max-width:860px}
+  .idea b{color:var(--hueso);font-weight:600}
+  .idea .fire{color:var(--ember)}
+  .checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .checks li{background:var(--tinta);padding:22px 24px;font-size:14px;color:var(--humo);line-height:1.6}
+  .checks li b{color:var(--hueso);font-weight:600;display:block;margin-bottom:4px}
+  .checks li a{color:var(--ember);text-decoration:none}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .stat{background:var(--tinta);padding:24px 20px}
+  .stat .sv{font-family:'Anton',sans-serif;font-size:36px;line-height:1;color:var(--hueso)}
+  .stat .sv em{color:var(--ember);font-style:normal}
+  .stat .sl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;color:var(--humo);text-transform:uppercase;margin-top:8px;line-height:1.7}
+  .cat{border:1px solid var(--line);margin-bottom:18px}
+  .cat-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:18px 22px;background:var(--tinta2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .cat-head h3{font-family:'Anton',sans-serif;font-size:20px;text-transform:uppercase}
+  .badge{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;padding:5px 12px;text-transform:uppercase}
+  .badge.ok{background:var(--ember);color:var(--tinta)}
+  .badge.wait{border:1px solid var(--line);color:var(--humo)}
+  .opciones{width:100%;border-collapse:collapse}
+  .opciones th{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--ember);text-transform:uppercase;
+    text-align:left;padding:12px 22px;border-bottom:1px solid var(--line);font-weight:400}
+  .opciones td{padding:14px 22px;font-size:13.5px;color:var(--humo);line-height:1.6;border-bottom:1px solid var(--line);vertical-align:top}
+  .opciones tr:last-child td{border-bottom:none}
+  .opciones td b{color:var(--hueso);font-weight:600}
+  .opciones .precio{font-family:'IBM Plex Mono',monospace;color:var(--hueso);white-space:nowrap}
+  .reco{padding:14px 22px;font-size:13px;line-height:1.7;color:var(--humo);background:rgba(255,78,27,.05);border-top:1px dashed var(--ember)}
+  .reco b{color:var(--ember);font-weight:600}
+  .riesgos{list-style:none}
+  .riesgos li{display:grid;grid-template-columns:34px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--humo);line-height:1.65}
+  .riesgos li:first-child{border-top:1px solid var(--line)}
+  .riesgos b{color:var(--hueso);font-weight:600}
+  .decidir{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .decidir .d{background:var(--tinta);padding:26px 24px}
+  .decidir .dn{font-family:'Anton',sans-serif;font-size:38px;color:var(--ember);line-height:1}
+  .decidir h4{font-family:'Anton',sans-serif;font-size:17px;text-transform:uppercase;margin-top:10px}
+  .decidir p{color:var(--humo);font-size:13px;line-height:1.6;margin-top:6px}
+  .linkrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .linkrow a{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    border:1px solid var(--line);padding:13px 22px;color:var(--hueso);text-decoration:none;transition:.2s}
+  .linkrow a:hover{border-color:var(--ember);color:var(--ember)}
+  @media(max-width:820px){.checks{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.decidir{grid-template-columns:1fr}
+    .opciones{display:block;overflow-x:auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div><b>MONSTER KEBABS</b><span class="dot"> ●</span> RESUMEN PARA SOCIOS</div>
+  <nav class="nav"><a href="index.html">LA MARCA</a><a href="numeros.html">NÚMEROS</a><a href="plan.html">PLAN</a><a href="proveedores.html">PROVEEDORES</a></nav>
+</div>
+
+<section class="page-head">
+  <div class="fecha">ACTUALIZADO — 23 DE JULIO 2026</div>
+  <h1 class="display">El estado del<br>proyecto</h1>
+</section>
+
+<!-- LA IDEA -->
+<section class="rv" style="padding-top:20px">
+  <div class="label">01 — LA IDEA EN 30 SEGUNDOS</div>
+  <p class="idea">Dark kitchen de <b>kebabs premium + papas cambray</b> en Morelia, solo delivery.
+  El insight: <b>el taco al pastor ES el descendiente del shawarma</b> — México ya ama el trompo hace 90 años
+  y nadie vende el original con marca. Nuestra ventaja no es la receta: es <span class="fire">el universo</span> —
+  mascota, stickers coleccionables en cada pedido y lealtad que "evoluciona a tu monstruo".
+  <b>Cualquiera copia un kebab; nadie copia un universo.</b> Diseñada para escalar a franquicia.</p>
+</section>
+
+<!-- LO QUE EXISTE -->
+<section class="rv">
+  <div class="label">02 — LO QUE YA EXISTE (VERIFICABLE CON UN CLICK)</div>
+  <ul class="checks">
+    <li><b>✅ Marca completa</b>Logo, mascota (KEBO), sistema de empaques fotografiado, 30 posts de lanzamiento listos. <a href="index.html">Ver la marca →</a></li>
+    <li><b>✅ Plan de negocio</b>8 capítulos: mercado, análisis de Morelia por zonas, menú costeado, operación, marketing, ruta a franquicia.</li>
+    <li><b>✅ Modelo financiero</b>Calculadora interactiva: mueve los supuestos y ve utilidad, equilibrio y payback. <a href="numeros.html">Jugar con los números →</a></li>
+    <li><b>✅ 48 proveedores verificados</b>Investigación con contactos confirmados + campaña de cotización enviada a 29. <a href="proveedores.html">Ver el directorio →</a></li>
+  </ul>
+</section>
+
+<!-- NÚMEROS -->
+<section class="rv">
+  <div class="label">03 — LOS NÚMEROS CLAVE (MODELO CON ESTIMADOS — EN VALIDACIÓN)</div>
+  <div class="stats">
+    <div class="stat"><div class="sv">$240</div><div class="sl">Ticket promedio objetivo</div></div>
+    <div class="stat"><div class="sv">38%</div><div class="sl">Margen de contribución ($91/orden, ya sin el 30% de plataformas)</div></div>
+    <div class="stat"><div class="sv">~20</div><div class="sl">Órdenes/día para punto de equilibrio</div></div>
+    <div class="stat"><div class="sv"><em>$41k</em></div><div class="sl">Utilidad/mes en escenario base (35 órdenes/día, desde mes 6)</div></div>
+    <div class="stat"><div class="sv">$290k</div><div class="sl">Inversión total (CAPEX $250k + marketing 90 días $40k)</div></div>
+    <div class="stat"><div class="sv">Mes 10</div><div class="sl">Recuperación del capital (con curva de arranque)</div></div>
+    <div class="stat"><div class="sv">$337k</div><div class="sl">Utilidad año 1 en escenario base (antes de impuestos)</div></div>
+    <div class="stat"><div class="sv"><em>OCT</em></div><div class="sl">Grand Opening objetivo — octubre 2026</div></div>
+  </div>
+  <p class="note">TODO EL MODELO ES AJUSTABLE EN VIVO EN <a href="numeros.html" style="color:var(--ember)">NUMEROS.HTML</a> ·
+  A 15 ÓRDENES/DÍA EL NEGOCIO PIERDE — <em>EL RIESGO REAL ES DEMANDA, NO FOOD COST.</em></p>
+</section>
+
+<!-- PROVEEDORES: LAS OPCIONES -->
+<section class="rv">
+  <div class="label">04 — PROVEEDORES: LAS OPCIONES SOBRE LA MESA</div>
+  <p class="idea" style="font-size:15px;margin-bottom:26px">Mandamos 29 solicitudes de cotización el 23 de julio.
+  <b>En menos de 24 horas ya hay precios reales en 5 categorías.</b> Así está el tablero:</p>
+
+  <!-- PAPEL -->
+  <div class="cat">
+    <div class="cat-head"><h3>Papel encerado impreso (envoltura del kebab)</h3><span class="badge ok">COTIZADO ✓</span></div>
+    <table class="opciones">
+      <tr><th>Opción</th><th>Precio</th><th>Condiciones</th></tr>
+      <tr><td><b>PapelGradoAlimenticio.com.mx</b> — líder actual</td><td class="precio">$0.62/hoja</td><td>4 millares $2,858 TODO incluido (placa única $260, envío). Alta resistencia a grasa. 7-10 días. Mandan sobre de muestras.</td></tr>
+      <tr><td>FoodBoxPaper (CDMX/Chiapas)</td><td class="precio">$0.52/hoja</td><td>Pero exige 5 millares + $690 de rodillo → primera compra sale a $0.66/hoja. Mejor en recompra.</td></tr>
+      <tr><td>Super Materias · Alpacka</td><td class="precio">$1.50-1.80/millar suelto</td><td>⏳ En espera de respuesta</td></tr>
+    </table>
+    <div class="reco"><b>Recomendación:</b> arrancar con PapelGradoAlimenticio (mínimo más bajo, todo incluido, ya mandó muestra física en camino); renegociar con FoodBoxPaper cuando el volumen suba.</div>
+  </div>
+
+  <!-- TEXTIL -->
+  <div class="cat">
+    <div class="cat-head"><h3>Hoodies del staff + gorras (merch de lealtad)</h3><span class="badge ok">COTIZADO ✓</span></div>
+    <table class="opciones">
+      <tr><th>Opción</th><th>Precio</th><th>Condiciones</th></tr>
+      <tr><td><b>Promoziona</b> (Morelia, Ventura Puente)</td><td class="precio">Hoodie $399 · Gorra $145</td><td>Marca Yazbek, serigrafía + bordado, <b>5 días hábiles</b>, ponchado y cuadro GRATIS. Invitan a ver muestras en tienda.</td></tr>
+      <tr><td>Simón Textiles (fabricante)</td><td class="precio">Hoodie $183–203</td><td>La mitad del precio, pero falta confirmar gramaje, muestra física y envío. A ciegas por ahora.</td></tr>
+    </table>
+    <div class="reco"><b>Recomendación:</b> visitar Promoziona esta semana y tocar la Yazbek. El hoodie es la recompensa premium que "no se vende" — si la calidad de fábrica de Simón convence con muestra, el ahorro es de ~$6,000 en 30 pzas; si no, se paga lo local.</div>
+  </div>
+
+  <!-- PINES -->
+  <div class="cat">
+    <div class="cat-head"><h3>Pin coleccionable (recompensa nivel KAIJU)</h3><span class="badge ok">COTIZADO ✓</span></div>
+    <table class="opciones">
+      <tr><th>Opción</th><th>Precio</th><th>Condiciones</th></tr>
+      <tr><td><b>Pines de México</b> (Monterrey) — 150 pzas</td><td class="precio">$52/set</td><td>Pin hard enamel 30mm + backing card impresa = $7,800. Molde incluido, sin IVA si no facturamos, 15-17 días. <b>Cotización vence ~13 ago.</b></td></tr>
+      <tr><td>Mismo proveedor — 300 pzas</td><td class="precio">$40/set</td><td>$12,000 total: 23% más barato por pieza, cubre ~2 años de programa.</td></tr>
+    </table>
+    <div class="reco"><b>Recomendación:</b> 150 pzas para arrancar. El pin premia 30 compras (~$7,200 de ingreso acumulado por cliente) — cuesta 0.7% de lo que ese cliente dejó. Costo de lealtad barato.</div>
+  </div>
+
+  <!-- LLAVEROS -->
+  <div class="cat">
+    <div class="cat-head"><h3>Llaveros de KEBO (merch vendible)</h3><span class="badge ok">COTIZADO ✓</span></div>
+    <table class="opciones">
+      <tr><th>Opción</th><th>Precio</th><th>Condiciones</th></tr>
+      <tr><td><b>Llaveros Inc — 2D PVC relieve</b> (5-6cm)</td><td class="precio">$35.90 (150) · $31.50 (300)</td><td>+ molde/muestra $1,500 único (no se repaga). Muestra física en 5-7 días. Incluye empaque individual.</td></tr>
+      <tr><td>Mismo proveedor — 3D volumétrico</td><td class="precio">$89 (150)</td><td>+ molde $3,300. Hermoso pero 2.5× el precio — descartado para el arranque.</td></tr>
+    </table>
+    <div class="reco"><b>Recomendación:</b> 2D a $36, venderlo en $99 en las apps como extra → margen de merch real. También pidieron cotizar el PELUCHE de KEBO (en espera).</div>
+  </div>
+
+  <!-- CAJAS -->
+  <div class="cat">
+    <div class="cat-head"><h3>Cajas y bolsas impresas (el empaque core)</h3><span class="badge wait">EN ESPERA ⏳</span></div>
+    <table class="opciones">
+      <tr><th>Opción</th><th>Referencia</th><th>Estado</th></tr>
+      <tr><td><b>Qué Bonito</b> (fabricante EN Morelia)</td><td class="precio">desde ~100 pzas</td><td>Le pedimos el PAQUETE COMPLETO (8 partidas) como proveedor único local. Visita a su tienda esta semana.</td></tr>
+      <tr><td>Boxology (CDMX, serigrafía desde 50 pzas)</td><td class="precio">línea $3-44/pza</td><td>⏳ Cotización enviada</td></tr>
+      <tr><td>Bolsec (bolsas, sin costo de placas) · MultiCajas (Morelia)</td><td class="precio">desde 500 pzas</td><td>⏳ Enviada (MultiCajas cambió de correo — ya reenviado)</td></tr>
+    </table>
+    <div class="reco"><b>Punto clave de esta categoría:</b> el kraft NEGRO casi no existe de línea en México — la pregunta a todos es si lo tienen o imprimen fondo. Regla: NUNCA firmar tiraje sin muestra física.</div>
+  </div>
+
+  <!-- DESECHABLES + STICKERS -->
+  <div class="cat">
+    <div class="cat-head"><h3>Desechables, tarrinas y stickers</h3><span class="badge wait">EN ESPERA ⏳</span></div>
+    <table class="opciones">
+      <tr><th>Opción</th><th>Referencia</th><th>Estado</th></tr>
+      <tr><td><b>Salto Verde</b> (Morelia, sustentables, precios públicos)</td><td class="precio">soufflé 2oz desde $88/paq</td><td>⏳ Cotización a volumen enviada</td></tr>
+      <tr><td>PLASTIMICH + 4 distribuidoras más (Central de Abastos)</td><td class="precio">precio de bodega</td><td>Respondieron: atienden por WhatsApp (443 412 9729) — seguimiento en curso</td></tr>
+      <tr><td>Stickers: L-D-I, Stickeria + 3 imprentas de Morelia</td><td class="precio">3,000 troquelados + 60 foil</td><td>L-D-I ya pidió los diseños — se los mandamos; cotización en curso</td></tr>
+    </table>
+    <div class="reco"><b>Presupuesto de merch del arranque</b> (30 hoodies + 48 gorras + 150 pines + 200 llaveros): <b>~$34,000</b> — dentro del presupuesto de marketing de la fase 1.</div>
+  </div>
+</section>
+
+<!-- RIESGOS -->
+<section class="rv">
+  <div class="label">05 — RIESGOS QUE NO ESCONDEMOS</div>
+  <ul class="riesgos">
+    <li><span>⚠️</span><p><b>El nombre.</b> Monster Energy litiga la palabra "MONSTER" globalmente. Búsqueda en IMPI antes de imprimir un solo empaque. Hay 4 nombres alternos listos que conservan todo el universo (KAIJU KEBAB, MONSTRO, YOKAI, KEBO).</p></li>
+    <li><span>⚠️</span><p><b>Los números son estimaciones fundamentadas, no facturas.</b> El GO/NO-GO se decide con las cotizaciones reales (ya llegando) y la prueba de cocina física.</p></li>
+    <li><span>⚠️</span><p><b>La demanda es el riesgo real.</b> A 15 órdenes/día se pierde dinero. Por eso el 40% del esfuerzo pre-apertura es marketing (30 pedidos semilla, micro-influencers, embajadores universitarios) y no cocina.</p></li>
+    <li><span>⚠️</span><p><b>Las fotos del sitio son generadas con IA</b> sobre los diseños reales de la marca — son el brief exacto del fotógrafo y de los proveedores, y se reemplazan con producto real en cuanto exista la cocina.</p></li>
+  </ul>
+</section>
+
+<!-- DECIDIR -->
+<section class="rv">
+  <div class="label">06 — LO QUE DECIDIMOS JUNTOS</div>
+  <div class="decidir">
+    <div class="d"><div class="dn">1</div><h4>Estructura</h4><p>Inversión y participación de cada socio sobre los ~$290k totales.</p></div>
+    <div class="d"><div class="dn">2</div><h4>Operación</h4><p>Quién lleva la cocina día a día (o contratar operador desde el mes 1).</p></div>
+    <div class="d"><div class="dn">3</div><h4>Fecha</h4><p>Compromiso de fecha para la decisión GO/NO-GO con los datos de validación en la mano.</p></div>
+  </div>
+  <div class="linkrow">
+    <a href="index.html">VER LA MARCA</a>
+    <a href="numeros.html">JUGAR CON LOS NÚMEROS</a>
+    <a href="plan.html">EL PLAN COMPLETO</a>
+    <a href="proveedores.html">LOS 48 PROVEEDORES</a>
+  </div>
+</section>
+
+<footer class="rv">
+  <div class="big display">La marca ya<br>existe.<span> Falta encenderla.</span></div>
+  <div class="foot-meta">
+    <span>MONSTER KEBABS® — RESUMEN PARA SOCIOS</span>
+    <span>ACTUALIZADO 23 JUL 2026</span>
+    <span>MORELIA, MICHOACÁN</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
